@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqgkjats5qag0"]
+[gd_scene load_steps=9 format=3 uid="uid://dqgkjats5qag0"]
 
 [ext_resource type="Texture2D" uid="uid://bjvlykpp2r1ri" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/arbre.png" id="1_68dj0"]
 [ext_resource type="Script" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/arbre.gd" id="1_s5it5"]
 [ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="3_u5ccg"]
+[ext_resource type="PackedScene" uid="uid://cbyjietd70i3c" path="res://PixelJam2026/Assets/Sprites/objets/drops/baton.tscn" id="4_bg3r8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_catj2"]
 radius = 25.0
@@ -88,3 +89,5 @@ shape = SubResource("CapsuleShape2D_catj2")
 libraries = {
 "": SubResource("AnimationLibrary_vuuxd")
 }
+
+[node name="Baton" parent="." instance=ExtResource("4_bg3r8")]

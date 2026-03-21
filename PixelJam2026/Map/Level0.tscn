@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://diox48sgk8gqg"]
+[gd_scene load_steps=11 format=4 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Texture2D" uid="uid://cx1k372ldvh0c" path="res://PixelJam2026/Assets/Tiles/ground_tiles.png" id="1_1fdlx"]
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
@@ -914,3 +914,9 @@ position = Vector2(320, 386)
 
 [node name="Rocher" parent="." instance=ExtResource("7_2dde8")]
 position = Vector2(116, 260)
+
+[node name="Arbre2" parent="." instance=ExtResource("4_ivyyo")]
+position = Vector2(576, 124)
+
+[node name="Arbre3" parent="." instance=ExtResource("4_ivyyo")]
+position = Vector2(801, 126)
