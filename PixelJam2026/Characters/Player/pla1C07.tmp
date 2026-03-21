@@ -612,7 +612,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 6.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -631,7 +631,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_krgs3")
 
 [node name="Body" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, -25)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pu8gj")
@@ -681,4 +680,4 @@ debug_color = Color(0, 0.649946, 0.120336, 0.42)
 [node name="AnimatedBody2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.352476, 0.352476)
 sprite_frames = SubResource("SpriteFrames_ddypk")
-animation = &"walk"
+animation = &"idle"
