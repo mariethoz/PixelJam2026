@@ -70,7 +70,7 @@ func get_input():
 	velocity = input_direction * speed
 
 	if Input.is_action_just_pressed("click"):
-		attack()
+		#attack()
 		is_attacking = true
 
 	if Input.is_action_just_released("click"):
