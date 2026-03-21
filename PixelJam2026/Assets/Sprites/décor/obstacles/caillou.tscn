@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bncxfwle1ulsu"]
+[gd_scene load_steps=7 format=3 uid="uid://bncxfwle1ulsu"]
 
+[ext_resource type="Script" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.gd" id="1_q1gpy"]
 [ext_resource type="Texture2D" uid="uid://yv0xd64v66a1" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.png" id="1_rre4a"]
+[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="2_odqmw"]
 
-[sub_resource type="Animation" id="Animation_uxu6d"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcltj"]
+radius = 25.0
+height = 82.0
+
+[sub_resource type="Animation" id="Animation_14llm"]
 resource_name = "hit"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("Caillou:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath("Caillou:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -30,50 +36,29 @@ tracks/1/keys = {
 "values": [Vector2(0.5, 0.5), Vector2(0.47, 0.47), Vector2(0.53, 0.53), Vector2(0.47, 0.47), Vector2(0.53, 0.53), Vector2(0.47, 0.47)]
 }
 
-[sub_resource type="Animation" id="Animation_qadio"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5sbs"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3isd4"]
 _data = {
-"RESET": SubResource("Animation_qadio"),
-"hit": SubResource("Animation_uxu6d")
+"hit": SubResource("Animation_14llm")
 }
-
-[sub_resource type="AnimationRootNode" id="AnimationRootNode_vetms"]
 
 [node name="Caillou" type="Node2D"]
+script = ExtResource("1_q1gpy")
 
 [node name="Caillou" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rre4a")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../Caillou")
+[node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("2_odqmw")]
+monitorable = true
+receiver = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kcltj")
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_g5sbs")
+"": SubResource("AnimationLibrary_3isd4")
 }
-tree_root = SubResource("AnimationRootNode_vetms")
