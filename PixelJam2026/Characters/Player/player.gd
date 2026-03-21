@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed = 400
 @export var hp = 10
@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var animation_motion = %AnimationMotion
 @onready var animation_attack = %AnimationAttack
 
+var knockback: Vector2 = Vector2.ZERO
+var knockback_time: float = 0
 
 var blend_rotation: float = 0
 var is_attacking = false
@@ -19,9 +21,16 @@ var is_attacking = false
 func hit(damage: int):
 	hp -= damage
 
+func knock(dir: Vector2):
+	knockback_time = 1
+	knockback = dir
+
+func attack_break():
+	knockback_time = 1
+
 func update_animation():
 	if hp <= 0:
-		animation_motion["parameters/condition/is_dead"] = true
+		animation_motion["parameters/conditions/is_dead"] = true
 		animation_motion["parameters/conditions/is_walking"] = false
 		animation_motion["parameters/conditions/is_idle"] = false
 	else:
@@ -36,19 +45,6 @@ func update_animation():
 	animation_motion["parameters/Idle/blend_position"] = blend_rotation
 	animation_motion["parameters/Walk/blend_position"] = blend_rotation
 	animation_motion["parameters/Dead/blend_position"] = blend_rotation
-	
-#@onready var anim = $AnimatedBody2D
-	#
-#func update_animation(direction):
-	#if direction == Vector2.ZERO:
-		#anim.play("idle")
-	#else:
-		#anim.play("walk")
-#
-		#if direction.x != 0:
-			#anim.flip_h = direction.x > 0
-			#weapon.flip_h = direction.x > 0
-				
 
 func get_input():
 	var rotation_direction = get_global_mouse_position().angle_to_point(position)
@@ -63,56 +59,27 @@ func get_input():
 			rotation_direction = -(angle_block-1)*PI/angle_block
 		else:
 			rotation_direction = -PI/angle_block
-			
+
 	weapon.set_rotation(rotation_direction)
-	
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * speed
 
 	if Input.is_action_just_pressed("click"):
-		#attack()
 		is_attacking = true
 
 	if Input.is_action_just_released("click"):
 		is_attacking = false
 
 	update_animation()
-	
-	return input_direction
 
-#func _process(delta):
-	#weapon.look_at(get_global_mouse_position())
-#
-func attack():
-	if is_attacking:
-		return
-	
-	is_attacking = true
-	
-	var original_rotation = weapon.rotation
-	var attack_rotation = original_rotation + 1.5 * blend_rotation # tweak this
+	return Input.get_vector("left", "right", "up", "down") * speed
 
-	# quick swing forward
-	var tween = create_tween()
-	tween.tween_property(weapon, "rotation", attack_rotation, 0.1)
-	tween.tween_property(weapon, "rotation", original_rotation, 0.1)
-
-	tween.finished.connect(func():
-		is_attacking = false
-	)
-	
-#func _input(event):
-	#if event.is_action_pressed("click"):
-		#attack()
-		
-#func _physics_process(delta):
-	#get_input()
-	#move_and_slide()
 
 func _physics_process(delta):
-	#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = get_input()
-	velocity = direction * speed
+	var new_velocity = get_input()
+	
+	if knockback_time > 0:
+		knockback_time -= delta
+		new_velocity = knockback
+		if knockback_time <= 0:
+			knockback = Vector2.ZERO
+	velocity = new_velocity
 	move_and_slide()
-
-	#update_animation(direction)	

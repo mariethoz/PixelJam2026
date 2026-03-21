@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://7gssgmgnx427"]
+
+[ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_ks6lv"]
+[ext_resource type="Texture2D" uid="uid://bf4xwvkdbq101" path="res://icon.svg" id="1_pem0g"]
+[ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_jgqii"]
+[ext_resource type="PackedScene" uid="uid://dfktiyhchniuq" path="res://PixelJam2026/Characters/Ennemies/en1/en1.tscn" id="3_k5qy1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5gcoq"]
+vertices = PackedVector2Array(1086.71, -425.109, 1063.26, 424.031, -1302.24, 432.953, -1086.17, -448.906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1094, -459, 1097, -435, 1073, 434, -1315, 443)])
+
+[node name="Test" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_ks6lv")
+player = NodePath("Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pem0g")
+
+[node name="Player" parent="." instance=ExtResource("2_jgqii")]
+
+[node name="En1" parent="." instance=ExtResource("3_k5qy1")]
+position = Vector2(-323, -160)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_5gcoq")
+
+[node name="En2" parent="." instance=ExtResource("3_k5qy1")]
+position = Vector2(-110, -223)
+
+[node name="En3" parent="." instance=ExtResource("3_k5qy1")]
+position = Vector2(196, -201)
+
+[node name="En4" parent="." instance=ExtResource("3_k5qy1")]
+position = Vector2(-213, -12)

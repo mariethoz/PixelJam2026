@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5m57vfy88pq0"]
 
-[ext_resource type="Script" path="res://PixelJam2026/Characters/Player/hit_box.gd" id="1_ek8qu"]
+[ext_resource type="Script" path="res://PixelJam2026/Characters/Helper/hit_box.gd" id="1_ek8qu"]
 
 [node name="HitBox" type="Area2D"]
 collision_layer = 0

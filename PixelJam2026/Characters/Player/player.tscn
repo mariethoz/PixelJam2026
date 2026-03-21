@@ -23,6 +23,10 @@
 radius = 25.0
 height = 100.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1682p"]
+radius = 60.0
+height = 400.0
+
 [sub_resource type="Animation" id="Animation_7hiw7"]
 length = 0.001
 tracks/0/type = "value"
@@ -561,7 +565,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:monitorable")
+tracks/1/path = NodePath("Body/HurtBox:monitorable")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -613,7 +617,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:monitorable")
+tracks/1/path = NodePath("Body/HurtBox:monitorable")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -664,7 +668,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:monitorable")
+tracks/1/path = NodePath("Body/HurtBox:monitorable")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -729,10 +733,6 @@ transitions = ["Start", "attack_idle", SubResource("AnimationNodeStateMachineTra
 radius = 40.0
 height = 90.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1682p"]
-radius = 80.0
-height = 500.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ddypk"]
 animations = [{
 "frames": [{
@@ -768,7 +768,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_2g8rw")
 
@@ -786,6 +786,18 @@ texture = ExtResource("2_jje0e")
 position = Vector2(0, -25)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pu8gj")
+
+[node name="HurtBox" parent="Body" node_paths=PackedStringArray("emmiter") instance=ExtResource("5_y7h1g")]
+unique_name_in_owner = true
+collision_layer = 8
+monitorable = false
+damage = 5
+emmiter = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HurtBox"]
+position = Vector2(-250, 0)
+shape = SubResource("CapsuleShape2D_1682p")
+debug_color = Color(0, 0.649946, 0.120336, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -812,22 +824,13 @@ parameters/conditions/is_attacking = false
 parameters/conditions/is_dead = false
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("4_5uw3y")]
+collision_mask = 16
 receiver = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_o1c5i")
 debug_color = Color(0.977839, 0, 0.400958, 0.42)
-
-[node name="HurtBox" parent="." instance=ExtResource("5_y7h1g")]
-unique_name_in_owner = true
-monitorable = false
-damage = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-243.333, -66.6667)
-shape = SubResource("CapsuleShape2D_1682p")
-debug_color = Color(0, 0.649946, 0.120336, 0.42)
 
 [node name="AnimatedBody2D" type="AnimatedSprite2D" parent="."]
 visible = false

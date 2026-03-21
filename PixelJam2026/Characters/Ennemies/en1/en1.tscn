@@ -1,18 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfktiyhchniuq"]
+[gd_scene load_steps=8 format=3 uid="uid://dfktiyhchniuq"]
 
+[ext_resource type="Script" path="res://PixelJam2026/Characters/Ennemies/enemy.gd" id="1_4ceu1"]
 [ext_resource type="Texture2D" uid="uid://cturl2573nube" path="res://PixelJam2026/Characters/Ennemies/en1/en1/monstre neutre.png" id="2_2badm"]
+[ext_resource type="PackedScene" uid="uid://cs0dc1fa82guw" path="res://PixelJam2026/Characters/Helper/hurt_box.tscn" id="3_oisl8"]
+[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="4_3kxij"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5v71"]
-radius = 46.0
-height = 94.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xd25f"]
+radius = 30.0
 
-[node name="En1" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdgil"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfkbx"]
+radius = 60.0
+
+[node name="En1" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+collision_layer = 4
+collision_mask = 7
 motion_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_s5v71")
+script = ExtResource("1_4ceu1")
+navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="MonstreNeutre" type="Sprite2D" parent="."]
 scale = Vector2(0.3375, 0.3375)
 texture = ExtResource("2_2badm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_xd25f")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Timer")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("emmiter") instance=ExtResource("3_oisl8")]
+damage = 1
+emmiter = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_jdgil")
+debug_color = Color(0, 0.6, 0, 0.419608)
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("4_3kxij")]
+receiver = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_jfkbx")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
