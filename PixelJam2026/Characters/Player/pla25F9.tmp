@@ -283,10 +283,10 @@ tracks/0/path = NodePath("Body:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("7_8rkxa"), ExtResource("8_su7nj"), ExtResource("6_adren"), ExtResource("9_j8tyv"), ExtResource("10_agh54"), ExtResource("11_q721m"), ExtResource("7_8rkxa"), ExtResource("8_su7nj"), ExtResource("6_adren"), ExtResource("9_j8tyv"), ExtResource("10_agh54"), ExtResource("7_8rkxa")]
+"values": [ExtResource("2_pu8gj"), ExtResource("2_pu8gj")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -335,10 +335,10 @@ tracks/0/path = NodePath("Body:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("7_8rkxa"), ExtResource("8_su7nj"), ExtResource("6_adren"), ExtResource("9_j8tyv"), ExtResource("10_agh54"), ExtResource("11_q721m"), ExtResource("7_8rkxa"), ExtResource("8_su7nj"), ExtResource("6_adren"), ExtResource("9_j8tyv"), ExtResource("10_agh54"), ExtResource("11_q721m")]
+"values": [ExtResource("2_pu8gj"), ExtResource("2_pu8gj")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -347,7 +347,7 @@ tracks/1/path = NodePath("Body:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
@@ -359,7 +359,7 @@ tracks/2/path = NodePath("Body:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.1),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(0, 1, 1, 1)]
@@ -371,7 +371,7 @@ tracks/3/path = NodePath("Weapon:flip_v")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
@@ -585,7 +585,7 @@ height = 500.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pu8gj")
+"texture": ExtResource("6_adren")
 }],
 "loop": true,
 "name": &"idle",
@@ -619,6 +619,9 @@ animations = [{
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_2g8rw")
+speed = null
+hp = null
+angle_block = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -631,6 +634,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_krgs3")
 
 [node name="Body" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -25)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pu8gj")
@@ -678,7 +682,6 @@ shape = SubResource("CapsuleShape2D_1682p")
 debug_color = Color(0, 0.649946, 0.120336, 0.42)
 
 [node name="AnimatedBody2D" type="AnimatedSprite2D" parent="."]
-visible = false
 scale = Vector2(0.352476, 0.352476)
 sprite_frames = SubResource("SpriteFrames_ddypk")
-animation = &"walk"
+animation = &"idle"
