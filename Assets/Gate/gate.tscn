@@ -1,0 +1,243 @@
+[gd_scene load_steps=27 format=3 uid="uid://6btrx3viad30"]
+
+[ext_resource type="Script" path="res://Assets/Gate/gate.gd" id="1_gh5lt"]
+[ext_resource type="Texture2D" uid="uid://dqp04gxatbnfw" path="res://Assets/Tiles/animated/sprite_dungeon-gate_32x32_8-frames.png" id="2_a0s5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcleq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3i1x"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5td2"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b1rw"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrtdv"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktmui"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwxh"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re4mb"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb4gw"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdmxg"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtk2t"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjsgg"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb0mn"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdqmc"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8bh4"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekpbv"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76gjk"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxhsg"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60xd1"]
+atlas = ExtResource("2_a0s5i")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smxkt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3i1x")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5td2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b1rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrtdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktmui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re4mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb4gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdmxg")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtk2t")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjsgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb0mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdqmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8bh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekpbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76gjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxhsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60xd1")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 14.0
+}]
+
+[sub_resource type="Animation" id="Animation_xcleq"]
+resource_name = "Black_to_fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade_to_black/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yhadt"]
+resource_name = "Fade_to_black"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade_to_black/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e4ije"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade_to_black/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcleq"]
+_data = {
+"Black_to_fade": SubResource("Animation_xcleq"),
+"Fade_to_black": SubResource("Animation_yhadt"),
+"RESET": SubResource("Animation_e4ije")
+}
+
+[node name="Gate" type="Node2D"]
+script = ExtResource("1_gh5lt")
+
+[node name="Gate_Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate_Area2D"]
+position = Vector2(124, -26)
+shape = SubResource("RectangleShape2D_xcleq")
+
+[node name="Gate" type="Sprite2D" parent="."]
+
+[node name="animated_gate" type="AnimatedSprite2D" parent="Gate"]
+position = Vector2(123, -32)
+sprite_frames = SubResource("SpriteFrames_smxkt")
+animation = &"Opening"
+autoplay = "Closed"
+
+[node name="Fade_to_black" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xcleq")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Fade_to_black"]
+modulate = Color(0, 0, 0, 0)
+offset_left = -22.0
+offset_top = -8838.0
+offset_right = 31394.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="area_entered" from="Gate_Area2D" to="." method="_on_gate_area_2d_area_entered"]
+[connection signal="area_exited" from="Gate_Area2D" to="." method="_on_gate_area_2d_area_exited"]
+[connection signal="animation_finished" from="Gate/animated_gate" to="." method="_on_animated_gate_animation_finished"]

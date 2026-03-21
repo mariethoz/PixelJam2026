@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://brxq8au3bemil"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_vtyx4"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_fnadc"]
+
+[sub_resource type="Resource" id="Resource_lagna"]
+script = ExtResource("2_fnadc")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The wizard emerged from the shadowy depths of the cave, his boots crunching on the fresh snow beneath him. The world was a stark white canvas, softened only by the pale glow of the winter sun as it hung low on the horizon. His purple dress fluttered in the biting wind, and the yellow stars on his hat shone bright, defying the muted tones of the wintry expanse."
+
+[sub_resource type="Resource" id="Resource_vtqyp"]
+script = ExtResource("2_fnadc")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "He paused, leaning slightly on his staff, and cast his gaze upward. Before him loomed the summit, its jagged peak piercing the sky like a silent sentinel. The climb ahead would be unforgiving, with ice glistening treacherously on the steep slopes and the howling winds ready to test his resolve. Yet, despite the challenge, his eyes sparkled with determination."
+
+[sub_resource type="Resource" id="Resource_877if"]
+script = ExtResource("2_fnadc")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "This was more than a physical ascent—it was the culmination of his journey thus far. Each step through rivers, forests, and mysterious caves had led him here, to the heart of the mountains where the air was thin, and the silence carried the weight of untold secrets."
+
+[sub_resource type="Resource" id="Resource_i21ph"]
+script = ExtResource("2_fnadc")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "For a moment, he closed his eyes, letting the chill seep into his skin and the enormity of the moment sink into his soul. The summit seemed to call to him, a wordless invitation to uncover whatever truths or treasures it guarded. With a deep breath, the wizard tightened his grip on his staff, the magic within him resonating like a drumbeat in the stillness of the mountains."
+
+[sub_resource type="Resource" id="Resource_mhymu"]
+script = ExtResource("2_fnadc")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "And then, with a determined stride, he began his ascent. The summit awaited—along with the mysteries it promised to reveal."
+
+[node name="Intermede" instance=ExtResource("1_vtyx4")]
+dialog_text = Array[ExtResource("2_fnadc")]([SubResource("Resource_lagna"), SubResource("Resource_vtqyp"), SubResource("Resource_877if"), SubResource("Resource_i21ph"), SubResource("Resource_mhymu")])
+background_texture = "res://Assets/Picture/wind_begin.jpg"
+next_scene = "uid://c70n8etl5i66k"

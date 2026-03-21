@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dga00uqb334rm"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_ccm0x"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_5nprl"]
+
+[sub_resource type="Resource" id="Resource_xxl0r"]
+script = ExtResource("2_5nprl")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "These rivers were not just obstacles—they were lessons. Some required patience, others ingenuity, and others still, sheer bravery. Each crossing left him stronger and more attuned to the rhythm of the world around him. By the time he reached the other side of the last river, he felt as though he had conquered not just the waters, but the doubts that lingered in his heart. The journey was transforming him, as all great adventures must."
+
+[node name="Intermede" instance=ExtResource("1_ccm0x")]
+dialog_text = Array[ExtResource("2_5nprl")]([SubResource("Resource_xxl0r")])
+background_texture = "res://Assets/Picture/water_begin.jpg"
+next_scene = "res://UI/Intermede/Fire.tscn"

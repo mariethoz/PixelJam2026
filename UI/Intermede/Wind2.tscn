@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://3tgapibxsvxo"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_qojvy"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_opitg"]
+
+[sub_resource type="Resource" id="Resource_852pi"]
+script = ExtResource("2_opitg")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "Amid the biting cold and relentless winds of the snowy mountains, wind magic becomes an indispensable force. The wizard wields its power not just to command the air, but to turn the very elements of the environment to his advantage. With a flick of his staff, gusts can be shaped into barriers, pushing back blinding snow and cutting through treacherous drifts. Wind magic also serves as a guide, sweeping aside the deceptive mists that obscure the mountain path, revealing what lies ahead."
+
+[sub_resource type="Resource" id="Resource_68hc4"]
+script = ExtResource("2_opitg")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "On the icy slopes, where footing is perilous, a carefully conjured breeze steadies his balance, while stronger currents carry him across wide chasms. Yet, the magic is not without its challenges—the howling mountain winds have a will of their own, demanding both finesse and respect from those who dare to master them. It is a delicate dance between man and nature, a testament to the wizard's skill and connection to the world around him."
+
+[node name="Intermede" instance=ExtResource("1_qojvy")]
+dialog_text = Array[ExtResource("2_opitg")]([SubResource("Resource_852pi"), SubResource("Resource_68hc4")])
+background_texture = "res://Assets/Picture/wind_begin.jpg"
+next_scene = "res://UI/Intermede/Next.tscn"

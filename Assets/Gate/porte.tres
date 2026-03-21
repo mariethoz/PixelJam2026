@@ -1,0 +1,94 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://3yetmoh171ta"]
+
+[ext_resource type="Texture2D" uid="uid://dqp04gxatbnfw" path="res://Assets/Tiles/animated/sprite_dungeon-gate_32x32_8-frames.png" id="1_7uckm"]
+[ext_resource type="Texture2D" uid="uid://cjdaoi35ei15k" path="res://Assets/Tiles/animated/sprite_dungeon-light_16x16_8-frames.png" id="2_rcf3y"]
+[ext_resource type="Texture2D" uid="uid://dkrr8ddptw7ct" path="res://Assets/Tiles/animated/sprite_elevator-body_48x48_16-frames.png" id="3_71otp"]
+[ext_resource type="Texture2D" uid="uid://c55tux0lwudrn" path="res://Assets/Tiles/animated/sprite_elevator-door_48x48_16-frames.png" id="4_015kl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2w58"]
+resource_name = "gate_open"
+texture = ExtResource("1_7uckm")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_frame_0/duration = 0.5
+0:0/animation_frame_1/duration = 0.5
+0:0/animation_frame_2/duration = 0.5
+0:0/animation_frame_3/duration = 0.5
+0:0/animation_frame_4/duration = 0.5
+0:0/animation_frame_5/duration = 0.5
+0:0/animation_frame_6/duration = 0.5
+0:0/animation_frame_7/duration = 0.5
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncqgh"]
+resource_name = "dungeon_light"
+texture = ExtResource("2_rcf3y")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lq7n4"]
+texture = ExtResource("3_71otp")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8g46"]
+texture = ExtResource("4_015kl")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/0 = 0
+
+[resource]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Gate"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/1 = SubResource("TileSetAtlasSource_c2w58")
+sources/4 = SubResource("TileSetAtlasSource_ncqgh")
+sources/5 = SubResource("TileSetAtlasSource_lq7n4")
+sources/6 = SubResource("TileSetAtlasSource_j8g46")

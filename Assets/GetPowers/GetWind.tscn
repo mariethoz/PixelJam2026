@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxph6vcjxdhw6"]
+
+[ext_resource type="Script" path="res://Assets/GetPowers/ice_power.gd" id="1_5dv3i"]
+[ext_resource type="Texture2D" uid="uid://vvcygj187p2m" path="res://Assets/Player/Enchants/Particle.png" id="2_ohoye"]
+[ext_resource type="PackedScene" uid="uid://n4ixt6ub2lj1" path="res://UI/Dialog/Dialog.tscn" id="3_8we3t"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="4_xwqg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqovo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dakqr"]
+atlas = ExtResource("2_ohoye")
+region = Rect2(0, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xehvl"]
+atlas = ExtResource("2_ohoye")
+region = Rect2(32, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fgh6"]
+atlas = ExtResource("2_ohoye")
+region = Rect2(64, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0utop"]
+atlas = ExtResource("2_ohoye")
+region = Rect2(96, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqbyl"]
+atlas = ExtResource("2_ohoye")
+region = Rect2(128, 0, 32, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7c06f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dakqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xehvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fgh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0utop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqbyl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ohoye"]
+script = ExtResource("4_xwqg4")
+id = 0
+logo = "res://Assets/Hats.png"
+text = ""
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_dakqr"]
+script = ExtResource("4_xwqg4")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You got wind enchantment !"
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_xehvl"]
+script = ExtResource("4_xwqg4")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You should be able to jump higher with it active."
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_7fgh6"]
+script = ExtResource("4_xwqg4")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You can toggle it with \"l\""
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[node name="GetWind" type="Node2D"]
+
+[node name="WindPower" type="Area2D" parent="."]
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("1_5dv3i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindPower"]
+shape = SubResource("RectangleShape2D_nqovo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WindPower"]
+position = Vector2(-1, -5)
+sprite_frames = SubResource("SpriteFrames_7c06f")
+autoplay = "default"
+
+[node name="Dialog" parent="." instance=ExtResource("3_8we3t")]
+dialog_data = Array[ExtResource("4_xwqg4")]([SubResource("Resource_ohoye"), SubResource("Resource_dakqr"), SubResource("Resource_xehvl"), SubResource("Resource_7fgh6")])
+sounds = Array[String](["res://Audio/Dialogs/Hat/Shorts/ESM_GT_cinematic_fx_vocalizations_princess_shorts_gibberish_14.wav"])
+
+[connection signal="area_entered" from="WindPower" to="WindPower" method="_on_area_entered"]
+[connection signal="area_entered" from="WindPower" to="Dialog" method="launch_dialog"]

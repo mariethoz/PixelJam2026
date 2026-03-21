@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c70n8etl5i66k"]
+
+[ext_resource type="Script" path="res://Level/Scripts/Level2_Scene.gd" id="1_6mely"]
+[ext_resource type="AudioStream" uid="uid://dx8s6g5k5amcl" path="res://Audio/CaveDroplets.wav" id="2_3g6qg"]
+[ext_resource type="PackedScene" uid="uid://duw6ybytjaral" path="res://player.tscn" id="3_oi5rm"]
+[ext_resource type="PackedScene" uid="uid://fq7ia767ce7y" path="res://UI/Composants/Fade_in/fade_in.tscn" id="4_fwifv"]
+[ext_resource type="PackedScene" uid="uid://cv32a574c64y8" path="res://Level/Map/Level_3.tscn" id="5_6mely"]
+
+[node name="Level3_Scene" type="Node"]
+script = ExtResource("1_6mely")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3g6qg")
+
+[node name="Level" parent="." instance=ExtResource("5_6mely")]
+position = Vector2(81, 2126)
+
+[node name="Fade_in" parent="." instance=ExtResource("4_fwifv")]
+
+[node name="Player" parent="." instance=ExtResource("3_oi5rm")]
+position = Vector2(170, -257)
+scale_factor = 3.0
+power_to_get = "wind"
+has_fire_enchantment = true
+has_ice_enchantment = true

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8q48xorn480w"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_r6hfr"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_wp73j"]
+
+[sub_resource type="Resource" id="Resource_66m17"]
+script = ExtResource("2_wp73j")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The wizard stood at the very peak, the crisp, icy wind tugging at his purple dress and causing the stars on his hat to shimmer as if part of the heavens themselves. His breath formed soft clouds in the frigid air as he turned to look back down at the valley far below."
+
+[sub_resource type="Resource" id="Resource_2pipt"]
+script = ExtResource("2_wp73j")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "From this vantage point, the world unfolded like a grand tapestry. The rivers he had crossed gleamed like silver threads, winding through the verdant green and earthy brown of the land. The forests he'd walked through appeared as mere patches of emerald, and the cave he had ventured into was just a shadowy crevice, hidden behind the misty curtain of the waterfall. The journey, with all its trials and wonders, lay sprawled out before him, a path now etched in memory."
+
+[sub_resource type="Resource" id="Resource_fafgq"]
+script = ExtResource("2_wp73j")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The wizard took a moment to reflect, leaning on his staff as he let the grandeur of the view wash over him. It wasn't just the valley he saw; it was every step, every challenge, and every triumph that had brought him to this place. The summit was not just an end—it was a vantage point to see how far he had come."
+
+[sub_resource type="Resource" id="Resource_f3t10"]
+script = ExtResource("2_wp73j")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "A smile crept onto his face, and the yellow stars on his hat seemed to twinkle with renewed vigor. Somewhere in the distance, beyond the horizon, lay the next chapter of his story. But for now, atop the snowy peak, he allowed himself a moment to simply be—to bask in the splendor of the world below and the thrill of the unknown that still awaited."
+
+[node name="Intermede" instance=ExtResource("1_r6hfr")]
+dialog_text = Array[ExtResource("2_wp73j")]([SubResource("Resource_66m17"), SubResource("Resource_2pipt"), SubResource("Resource_fafgq"), SubResource("Resource_f3t10")])
+background_texture = "res://Assets/Picture/Final.jpg"
+next_scene = "res://UI/main_menu.tscn"

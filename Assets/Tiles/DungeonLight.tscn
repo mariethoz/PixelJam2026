@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://cd30jk6k0um0e"]
+
+[ext_resource type="Script" path="res://Assets/Tiles/DungeonLight.gd" id="1_dpbjl"]
+[ext_resource type="Texture2D" uid="uid://cwvc5bmu3h3md" path="res://Assets/Tiles/DungeonLight.tres" id="1_eyjrv"]
+[ext_resource type="Texture2D" uid="uid://cjdaoi35ei15k" path="res://Assets/Tiles/animated/sprite_dungeon-light_16x16_8-frames.png" id="2_bckai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q75go"]
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwx6a"]
+atlas = ExtResource("2_bckai")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58d7r"]
+atlas = ExtResource("2_bckai")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q6ms"]
+atlas = ExtResource("2_bckai")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxao2"]
+atlas = ExtResource("2_bckai")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unn86"]
+atlas = ExtResource("2_bckai")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2nyf"]
+atlas = ExtResource("2_bckai")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggklr"]
+atlas = ExtResource("2_bckai")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w12kf"]
+atlas = ExtResource("2_bckai")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k02y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q75go")
+}],
+"loop": false,
+"name": &"light_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwx6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58d7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q6ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxao2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unn86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2nyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggklr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w12kf")
+}],
+"loop": true,
+"name": &"light_on",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cq5pu"]
+radius = 6.0
+
+[node name="DungeonLight" type="PointLight2D"]
+texture = ExtResource("1_eyjrv")
+script = ExtResource("1_dpbjl")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_7k02y")
+animation = &"light_off"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cq5pu")
+
+[node name="Shadow" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+enabled = false
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.345098)
+shadow_filter = 1
+texture = ExtResource("1_eyjrv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

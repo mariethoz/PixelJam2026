@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6r5roxx8msmq"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_4fd4e"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_v0kce"]
+
+[sub_resource type="Resource" id="Resource_fsc4p"]
+script = ExtResource("2_v0kce")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "As the wizard continued his journey, the landscape began to shift. Rolling hills gave way to valleys carved by rivers that sparkled in the midday sun. His journey was no longer a simple stroll; it had become a test of both will and resourcefulness."
+
+[sub_resource type="Resource" id="Resource_ocer5"]
+script = ExtResource("2_v0kce")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The first river he encountered was gentle—a shallow stream that babbled and sang as it meandered through smooth stones. With a chuckle and a firm grip on his staff, the wizard waded through with ease. The cool water nipped at his boots, and he felt a whisper of the adventure ahead."
+
+[sub_resource type="Resource" id="Resource_kp4bk"]
+script = ExtResource("2_v0kce")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "But as the day wore on, the rivers became more formidable. One, wide and fast-flowing, forced the wizard to summon his magic..."
+
+[sub_resource type="Resource" id="Resource_esy7t"]
+script = ExtResource("2_v0kce")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "[p]What do you imagine he’ll encounter next? A forest? A mountain? A dragon, perhaps?"
+
+[node name="Intermede" instance=ExtResource("1_4fd4e")]
+dialog_text = Array[ExtResource("2_v0kce")]([SubResource("Resource_fsc4p"), SubResource("Resource_ocer5"), SubResource("Resource_kp4bk"), SubResource("Resource_esy7t")])
+background_texture = "res://Assets/Picture/water_begin.jpg"
+next_scene = "res://Level/Level1_Scene.tscn"

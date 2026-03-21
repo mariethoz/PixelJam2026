@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkoesno4ebknj"]
+
+[ext_resource type="Script" path="res://Level/Scripts/Level2_Scene.gd" id="1_jej8f"]
+[ext_resource type="AudioStream" uid="uid://dx8s6g5k5amcl" path="res://Audio/CaveDroplets.wav" id="2_4aqxq"]
+[ext_resource type="PackedScene" uid="uid://duw6ybytjaral" path="res://player.tscn" id="3_hs1ir"]
+[ext_resource type="PackedScene" uid="uid://fq7ia767ce7y" path="res://UI/Composants/Fade_in/fade_in.tscn" id="4_hgr3j"]
+
+[node name="Level4_Scene" type="Node"]
+script = ExtResource("1_jej8f")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4aqxq")
+
+[node name="Player" parent="." instance=ExtResource("3_hs1ir")]
+position = Vector2(24, -158)
+scale_factor = 3.0
+has_fire_enchantment = true
+has_ice_enchantment = true
+has_wind_enchantment = true
+
+[node name="Fade_in" parent="." instance=ExtResource("4_hgr3j")]

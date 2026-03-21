@@ -1,0 +1,153 @@
+[gd_scene load_steps=9 format=3 uid="uid://g5ybkddq8dda"]
+
+[ext_resource type="Script" uid="uid://dyrny6ytbkfqt" path="res://UI/Scripts/main_menu.gd" id="1_n11b4"]
+[ext_resource type="Texture2D" uid="uid://c3pnrvsh0pkn4" path="res://Assets/Pixel.png" id="3_wqbaw"]
+[ext_resource type="PackedScene" uid="uid://dbdpd0hoc6bbu" path="res://UI/Composants/menu_window.tscn" id="4_mvoxk"]
+[ext_resource type="Texture2D" uid="uid://coy0vqg8vqno4" path="res://Assets/Title_Screen.png" id="5_8ctay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6sieo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_maqbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd4fy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hosx"]
+
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("new_button", "load_button", "settings_button", "exit_button")]
+script = ExtResource("1_n11b4")
+new_button = NodePath("Control/UI/MargingContainer/VBoxContainer/Buttons/NewGame")
+load_button = NodePath("Control/UI/MargingContainer/VBoxContainer/Buttons/LoadGame")
+settings_button = NodePath("Control/UI/MargingContainer/VBoxContainer/Buttons/Settings")
+exit_button = NodePath("Control/UI/MargingContainer/VBoxContainer/Buttons/Exit")
+game_scene = "res://Level/Level0_Scene.tscn"
+load_save_scene = "res://Level/Level0_Scene.tscn"
+settings_scene = "res://UI/settings.tscn"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.184314, 0.305882, 1)
+
+[node name="Decor" type="HSplitContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Control/Decor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6sieo")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Decor"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("3_wqbaw")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="UI" type="HSplitContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MargingContainer" type="MarginContainer" parent="Control/UI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/UI/MargingContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/UI/MargingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_maqbq")
+
+[node name="Title" type="TextureRect" parent="Control/UI/MargingContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("5_8ctay")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="HSeparator2" type="HSeparator" parent="Control/UI/MargingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xd4fy")
+
+[node name="Buttons" type="VBoxContainer" parent="Control/UI/MargingContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NewGame" type="Button" parent="Control/UI/MargingContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Control/UI/MargingContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Load"
+
+[node name="Settings" type="Button" parent="Control/UI/MargingContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="Control/UI/MargingContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="HSeparator3" type="HSeparator" parent="Control/UI/MargingContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_maqbq")
+
+[node name="VSeparator" type="VSeparator" parent="Control/UI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hosx")
+
+[node name="VersionContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
+offset_right = 77.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Version" type="Label" parent="Control/VersionContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "0.0.8"
+
+[node name="MenuWindow" parent="." instance=ExtResource("4_mvoxk")]
+visible = false

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d28ll3pc1g66t"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_avdno"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_3uo1t"]
+
+[sub_resource type="Resource" id="Resource_dyhdj"]
+script = ExtResource("2_3uo1t")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The morning sun kissed the horizon as the wizard stood at the threshold of his humble stone cottage. His long, flowing purple dress shimmered faintly in the light, rippling like a spell cast on fabric itself. The wide-brimmed hat atop his head, adorned with a yellow star that twinkled as though alive, tilted forward slightly as he took a deep breath of the crisp, cool air."
+
+[sub_resource type="Resource" id="Resource_1pldb"]
+script = ExtResource("2_3uo1t")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "His gnarled staff, worn smooth in places by years of faithful use, thudded softly against the earth as he took his first step. The golden runes carved into the wood seemed to hum faintly with anticipation, mirroring the flutter in his chest. He glanced back, one final time, at the life he was leaving behind: the sprawling garden of hisbs and mushrooms, the puff of smoke still curling from the chimney, and the view of the distant mountains that had been his faithful companions for so long."
+
+[sub_resource type="Resource" id="Resource_3cwsv"]
+script = ExtResource("2_3uo1t")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "And now, his heart whispered, it was time. Time for a new chapter, a new adventure. With a resolve born of equal parts determination and curiosity, he toke his way. Each step took his furthis from the familiar and closer to the unknown, but the wizard felt no fear. His journey had only just begun, and with every twinkle of the star on his hat, the universe seemed to promise wonders untold. What lay ahead? Only the open road—and destiny—would reveal."
+
+[node name="Intermede" instance=ExtResource("1_avdno")]
+dialog_text = Array[ExtResource("2_3uo1t")]([SubResource("Resource_dyhdj"), SubResource("Resource_1pldb"), SubResource("Resource_3cwsv")])
+background_texture = "res://Assets/Picture/journey_begin.jpg"
+next_scene = "res://Level/Level0_Scene.tscn"
