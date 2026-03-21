@@ -1,6 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqgkjats5qag0"]
+[gd_scene load_steps=6 format=3 uid="uid://dqgkjats5qag0"]
 
 [ext_resource type="Texture2D" uid="uid://bjvlykpp2r1ri" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/arbre.png" id="1_68dj0"]
+
+[sub_resource type="Animation" id="Animation_453tl"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arbre:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.174533, -0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arbre:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1.19209e-07, 1.90735e-06), Vector2(25, 0), Vector2(-25, 0), Vector2(25, 0), Vector2(-25, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_twfsq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arbre:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arbre:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.19209e-07, 1.90735e-06)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq2mx"]
+_data = {
+"RESET": SubResource("Animation_twfsq"),
+"hit": SubResource("Animation_453tl")
+}
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_w28bx"]
 
 [node name="Arbre" type="Node2D"]
 
@@ -8,3 +71,9 @@
 position = Vector2(-1.19209e-07, 1.90735e-06)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_68dj0")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mq2mx")
+}
+tree_root = SubResource("AnimationRootNode_w28bx")

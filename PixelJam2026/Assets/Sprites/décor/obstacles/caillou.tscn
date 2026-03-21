@@ -1,9 +1,79 @@
-[gd_scene load_steps=2 format=3 uid="uid://bncxfwle1ulsu"]
+[gd_scene load_steps=6 format=3 uid="uid://bncxfwle1ulsu"]
 
 [ext_resource type="Texture2D" uid="uid://yv0xd64v66a1" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.png" id="1_rre4a"]
+
+[sub_resource type="Animation" id="Animation_uxu6d"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.47, 0.47), Vector2(0.53, 0.53), Vector2(0.47, 0.47), Vector2(0.53, 0.53), Vector2(0.47, 0.47)]
+}
+
+[sub_resource type="Animation" id="Animation_qadio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5sbs"]
+_data = {
+"RESET": SubResource("Animation_qadio"),
+"hit": SubResource("Animation_uxu6d")
+}
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_vetms"]
 
 [node name="Caillou" type="Node2D"]
 
 [node name="Caillou" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rre4a")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Caillou")
+libraries = {
+"": SubResource("AnimationLibrary_g5sbs")
+}
+tree_root = SubResource("AnimationRootNode_vetms")
