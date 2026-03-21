@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqgkjats5qag0"]
+
+[ext_resource type="Texture2D" uid="uid://bjvlykpp2r1ri" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/arbre.png" id="1_68dj0"]
+
+[node name="Arbre" type="Node2D"]
+
+[node name="Arbre" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.90735e-06)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_68dj0")

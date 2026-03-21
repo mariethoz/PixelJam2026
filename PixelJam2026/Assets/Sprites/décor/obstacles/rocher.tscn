@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgpyh218o7ihy"]
+
+[ext_resource type="Texture2D" uid="uid://b828j2wuorqhr" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/rocher.png" id="1_4akv1"]
+
+[node name="Rocher" type="Node2D"]
+
+[node name="Rocher" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_4akv1")
