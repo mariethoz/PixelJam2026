@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bncxfwle1ulsu"]
+
+[ext_resource type="Texture2D" uid="uid://yv0xd64v66a1" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.png" id="1_rre4a"]
+
+[node name="Caillou" type="Node2D"]
+
+[node name="Caillou" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rre4a")

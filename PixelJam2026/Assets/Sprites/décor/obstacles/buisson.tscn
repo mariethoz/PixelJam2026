@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chh6iscc43i22"]
+
+[ext_resource type="Texture2D" uid="uid://iadnokphquan" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/buisson.png" id="1_42w7q"]
+
+[node name="Buisson" type="Node2D"]
+
+[node name="Buisson" type="Sprite2D" parent="."]
+position = Vector2(4.23516e-22, -5.96046e-08)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_42w7q")
