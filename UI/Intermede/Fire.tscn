@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjnkoq5qt44ee"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_n4t4e"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_2q4vn"]
+
+[sub_resource type="Resource" id="Resource_2wsxj"]
+script = ExtResource("2_2q4vn")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "He had traversed rivers, braved the wilds, and now found himself at the entrance of a cave hidden behind the veil of rushing water. It was an unassuming opening, dark and foreboding, yet it seemed to hum with an ancient, untapped power. The cool spray of the waterfall kissed his face as he approached cautiously, leaning on his staff for balance."
+
+[sub_resource type="Resource" id="Resource_aw3bi"]
+script = ExtResource("2_2q4vn")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "The sound of the water muffled the world beyond, wrapping him in a cocoon of solitude. The wizard felt the weight of the moment settle upon him—this was no ordinary cave. His instincts told him that whatever lay within was as old as the earth itself, and likely as dangerous. Yet, he felt no fear. Only a spark of curiosity that danced in time with the stars on his hat."
+
+[sub_resource type="Resource" id="Resource_r3e8j"]
+script = ExtResource("2_2q4vn")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "What secrets would the cave reveal? The wizard pressed onward, his heart alight with determination. The journey was far from over. In fact, it was only just beginning."
+
+[node name="Intermede" instance=ExtResource("1_n4t4e")]
+dialog_text = Array[ExtResource("2_2q4vn")]([SubResource("Resource_2wsxj"), SubResource("Resource_aw3bi"), SubResource("Resource_r3e8j")])
+background_texture = "res://Assets/Picture/fire_begin.jpg"
+next_scene = "res://Level/Level2_Scene.tscn"

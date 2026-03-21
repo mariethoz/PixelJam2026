@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://clrs4545kh4ty"]
+
+[ext_resource type="Script" uid="uid://c2s2ksga3ero6" path="res://Level/Scripts/Level1_Scene.gd" id="1_b0xon"]
+[ext_resource type="PackedScene" uid="uid://c2lah1u1nbc2m" path="res://Level/Map/Level_1.tscn" id="2_kr41m"]
+[ext_resource type="PackedScene" uid="uid://duw6ybytjaral" path="res://player.tscn" id="3_xkq3v"]
+[ext_resource type="AudioStream" uid="uid://bda4vaxvwipnm" path="res://Audio/Bg1.wav" id="4_p3jok"]
+[ext_resource type="PackedScene" uid="uid://fq7ia767ce7y" path="res://UI/Composants/Fade_in/fade_in.tscn" id="5_vh6dr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2864j"]
+size = Vector2(36, 40)
+
+[node name="Level1_Scene" type="Node"]
+script = ExtResource("1_b0xon")
+
+[node name="Level" parent="." instance=ExtResource("2_kr41m")]
+position = Vector2(0, -125)
+
+[node name="Player" parent="." instance=ExtResource("3_xkq3v")]
+position = Vector2(24, -158)
+next_level = "res://Level/Level2_Scene.tscn"
+power_to_get = "ice"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p3jok")
+
+[node name="Fade_in" parent="." instance=ExtResource("5_vh6dr")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1014, -49)
+shape = SubResource("RectangleShape2D_2864j")
+one_way_collision = true

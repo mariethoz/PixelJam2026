@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctslb00p30yhd"]
+
+[ext_resource type="Script" path="res://UI/Dialog/intermede.gd" id="1_88njl"]
+[ext_resource type="PackedScene" uid="uid://n4ixt6ub2lj1" path="res://UI/Dialog/Dialog.tscn" id="2_glatb"]
+
+[node name="Intermede" type="CanvasLayer"]
+script = ExtResource("1_88njl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dialog" parent="." instance=ExtResource("2_glatb")]
+unique_name_in_owner = true
+
+[connection signal="dialog_over" from="Dialog" to="." method="dialog_over"]

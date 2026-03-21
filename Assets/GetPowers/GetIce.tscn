@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://di7h3lx8apcju"]
+
+[ext_resource type="Script" path="res://Assets/GetPowers/ice_power.gd" id="1_vhm11"]
+[ext_resource type="Texture2D" uid="uid://ca2dccmcve4rq" path="res://Assets/Player/Enchants/Particle_Ice.png" id="2_m75ds"]
+[ext_resource type="PackedScene" uid="uid://n4ixt6ub2lj1" path="res://UI/Dialog/Dialog.tscn" id="3_nqovo"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="4_84j4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqovo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb4la"]
+atlas = ExtResource("2_m75ds")
+region = Rect2(0, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3hcy"]
+atlas = ExtResource("2_m75ds")
+region = Rect2(32, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgeeg"]
+atlas = ExtResource("2_m75ds")
+region = Rect2(64, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3uij"]
+atlas = ExtResource("2_m75ds")
+region = Rect2(96, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uov5"]
+atlas = ExtResource("2_m75ds")
+region = Rect2(128, 0, 32, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84j4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb4la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3hcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgeeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3uij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uov5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_nqovo"]
+script = ExtResource("4_84j4l")
+id = 0
+logo = "res://Assets/Hats.png"
+text = ""
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_7xrh3"]
+script = ExtResource("4_84j4l")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You got ice enchantment !"
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_l2t5q"]
+script = ExtResource("4_84j4l")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You can now walk on water when you have it active."
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_4rfmp"]
+script = ExtResource("4_84j4l")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "Press \"j\" to toggle it. But be carefull you can't jump as high when you are that cold."
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[node name="GetIce" type="Node2D"]
+
+[node name="IcePower" type="Area2D" parent="."]
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("1_vhm11")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IcePower"]
+shape = SubResource("RectangleShape2D_nqovo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IcePower"]
+position = Vector2(-1, -5)
+sprite_frames = SubResource("SpriteFrames_84j4l")
+autoplay = "default"
+
+[node name="Dialog" parent="." instance=ExtResource("3_nqovo")]
+dialog_data = Array[ExtResource("4_84j4l")]([SubResource("Resource_nqovo"), SubResource("Resource_7xrh3"), SubResource("Resource_l2t5q"), SubResource("Resource_4rfmp")])
+sounds = Array[String](["res://Audio/Dialogs/Hat/Phrases/ESM_GT_cinematic_fx_vocalizations_princess_phrases_gibberish_09.wav"])
+
+[connection signal="area_entered" from="IcePower" to="IcePower" method="_on_area_entered"]
+[connection signal="area_entered" from="IcePower" to="Dialog" method="launch_dialog"]

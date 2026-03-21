@@ -1,0 +1,183 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4b4rk0lyildl"]
+
+[ext_resource type="Script" path="res://UI/Scripts/settings.gd" id="1_xnwku"]
+[ext_resource type="AudioStream" uid="uid://bwhbbkghmju45" path="res://Audio/quickFixes.mp3" id="3_e7emp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5563"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_infgq"]
+
+[node name="Settings" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 2
+script = ExtResource("1_xnwku")
+resolutions = Array[Vector2]([Vector2(1280, 720), Vector2(1920, 1080), Vector2(2560, 1440)])
+
+[node name="Sounds" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sounds"]
+layout_mode = 2
+alignment = 1
+
+[node name="SoundsLabel" type="Label" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+text = "Sound settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h5563")
+
+[node name="MasterSoundLabel" type="Label" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSoundSlider" type="HSlider" parent="Sounds/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+
+[node name="MusicLabel" type="Label" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Sounds/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+
+[node name="SFXLabe" type="Label" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Sounds/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+
+[node name="BGMLabel" type="Label" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+text = "BGM"
+
+[node name="BGMSlider" type="HSlider" parent="Sounds/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+
+[node name="HSeparator2" type="HSeparator" parent="Sounds/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_infgq")
+
+[node name="AudioMaster" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_e7emp")
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_e7emp")
+bus = &"Music"
+
+[node name="AudioSFX" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_e7emp")
+bus = &"SFX"
+
+[node name="AudioBGM" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_e7emp")
+bus = &"BGM"
+
+[node name="Visuals" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Visuals"]
+layout_mode = 2
+alignment = 1
+
+[node name="VisualsLabel" type="Label" parent="Visuals/VBoxContainer"]
+layout_mode = 2
+text = "Visuals settings"
+
+[node name="HSeparator" type="HSeparator" parent="Visuals/VBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckBox" parent="Visuals/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="ResolutionLabel" type="Label" parent="Visuals/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="Visuals/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UIScaleLabel" type="Label" parent="Visuals/VBoxContainer"]
+layout_mode = 2
+text = "UI Scale"
+
+[node name="UIScaleSlider" type="HSlider" parent="Visuals/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.8
+max_value = 1.6
+step = 0.01
+value = 0.8
+
+[node name="HSeparator2" type="HSeparator" parent="Visuals/VBoxContainer"]
+layout_mode = 2
+
+[node name="Commands" type="CenterContainer" parent="."]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Commands"]
+layout_mode = 2
+alignment = 1
+
+[node name="CommandLabel" type="Label" parent="Commands/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Commands settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetKey" type="Button" parent="Commands/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " Reset default keys"
+
+[node name="MarginCobtainer" type="MarginContainer" parent="Commands/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HotKeys" type="VBoxContainer" parent="Commands/VBoxContainer/MarginCobtainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

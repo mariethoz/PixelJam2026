@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1fb5rxnicxsf"]
+
+[ext_resource type="PackedScene" uid="uid://duw6ybytjaral" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" path="res://Level/Scripts/Level0_Scene.gd" id="1_p0nf0"]
+[ext_resource type="PackedScene" uid="uid://b7okeucq20qyy" path="res://Level/Map/Level_0.tscn" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://bda4vaxvwipnm" path="res://Audio/bg1.wav" id="4_4jtxk"]
+[ext_resource type="PackedScene" uid="uid://fq7ia767ce7y" path="res://UI/Composants/Fade_in/fade_in.tscn" id="5_tjkqn"]
+
+[node name="Level0_Scene" type="Node"]
+script = ExtResource("1_p0nf0")
+
+[node name="Level" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(0, -58)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(26, -97)
+next_level = "uid://c6r5roxx8msmq"
+scale_factor = 4.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4jtxk")
+bus = &"Music"
+
+[node name="Fade_in" parent="." instance=ExtResource("5_tjkqn")]

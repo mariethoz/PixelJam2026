@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://btgwn42omxw3g"]
+
+[ext_resource type="Script" path="res://Assets/GetPowers/ice_power.gd" id="1_86ow6"]
+[ext_resource type="Texture2D" uid="uid://db50naxns0n81" path="res://Assets/Player/Enchants/Particle_Fire.png" id="2_6lkip"]
+[ext_resource type="PackedScene" uid="uid://n4ixt6ub2lj1" path="res://UI/Dialog/Dialog.tscn" id="3_ltac6"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="4_7fbnb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqovo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no1kq"]
+atlas = ExtResource("2_6lkip")
+region = Rect2(0, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66ce8"]
+atlas = ExtResource("2_6lkip")
+region = Rect2(32, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pf1r"]
+atlas = ExtResource("2_6lkip")
+region = Rect2(64, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okh3o"]
+atlas = ExtResource("2_6lkip")
+region = Rect2(96, 0, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlsg"]
+atlas = ExtResource("2_6lkip")
+region = Rect2(128, 0, 32, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84j4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no1kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66ce8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pf1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okh3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlsg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_sh4lf"]
+script = ExtResource("4_7fbnb")
+id = 0
+logo = "res://Assets/Hats.png"
+text = ""
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_0k087"]
+script = ExtResource("4_7fbnb")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You got fire enchantment !"
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_ofkk5"]
+script = ExtResource("4_7fbnb")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You will light up the area around you."
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_rgwc1"]
+script = ExtResource("4_7fbnb")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "You might finally be able to see something in this cave !"
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[sub_resource type="Resource" id="Resource_mddef"]
+script = ExtResource("4_7fbnb")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "Press \"k\" to toggle it."
+metadata/_custom_type_script = "uid://cjx0hlik00iui"
+
+[node name="GetFire" type="Node2D"]
+
+[node name="FirePower" type="Area2D" parent="."]
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("1_86ow6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirePower"]
+shape = SubResource("RectangleShape2D_nqovo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FirePower"]
+position = Vector2(-1, -5)
+sprite_frames = SubResource("SpriteFrames_84j4l")
+autoplay = "default"
+
+[node name="Dialog" parent="." instance=ExtResource("3_ltac6")]
+dialog_data = Array[ExtResource("4_7fbnb")]([SubResource("Resource_sh4lf"), SubResource("Resource_0k087"), SubResource("Resource_ofkk5"), SubResource("Resource_rgwc1"), SubResource("Resource_mddef")])
+sounds = Array[String](["res://Audio/Dialogs/Hat/Shorts/ESM_GT_cinematic_fx_vocalizations_princess_shorts_gibberish_14.wav"])
+
+[connection signal="area_entered" from="FirePower" to="FirePower" method="_on_area_entered"]
+[connection signal="area_entered" from="FirePower" to="Dialog" method="launch_dialog"]

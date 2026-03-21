@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://co1hq80tjrdr1"]
+
+[ext_resource type="PackedScene" uid="uid://ctslb00p30yhd" path="res://UI/Dialog/intermede.tscn" id="1_fwym3"]
+[ext_resource type="Script" path="res://UI/Dialog/DialogData.gd" id="2_ukq2j"]
+
+[sub_resource type="Resource" id="Resource_xqspb"]
+script = ExtResource("2_ukq2j")
+id = 0
+logo = "res://Assets/Hats.png"
+text = "As the light fades and the echoes of your journey grow still, the path you tread comes to an end... for now. But every ending marks a chance for a new beginning. Will you rise again and face the challenges that await? The story is yours to continue..."
+
+[node name="Intermede" instance=ExtResource("1_fwym3")]
+dialog_text = Array[ExtResource("2_ukq2j")]([SubResource("Resource_xqspb")])
+background_texture = "res://Assets/Picture/game_over.jpg"
+next_scene = "res://UI/main_menu.tscn"

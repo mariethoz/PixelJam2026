@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3r4hnwq1ujw"]
+
+[ext_resource type="Script" path="res://Default/Scripts/keybind_manager.gd" id="1_baegl"]
+[ext_resource type="Script" path="res://Default/Scripts/action_key.gd" id="2_5pcdv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_a0vdy"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="Resource" id="Resource_11i35"]
+script = ExtResource("2_5pcdv")
+name = "Move left"
+tag = "move_left"
+event = SubResource("InputEventKey_a0vdy")
+
+[sub_resource type="InputEventKey" id="InputEventKey_l6y5m"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="Resource" id="Resource_p2lcp"]
+script = ExtResource("2_5pcdv")
+name = "Move right"
+tag = "move_right"
+event = SubResource("InputEventKey_l6y5m")
+
+[sub_resource type="InputEventKey" id="InputEventKey_4fajr"]
+device = -1
+pressed = true
+keycode = 32
+unicode = 32
+
+[sub_resource type="Resource" id="Resource_sy20r"]
+script = ExtResource("2_5pcdv")
+name = "Jump"
+tag = "jump"
+event = SubResource("InputEventKey_4fajr")
+
+[sub_resource type="InputEventKey" id="InputEventKey_d8cnb"]
+device = -1
+pressed = true
+keycode = 74
+unicode = 106
+
+[sub_resource type="Resource" id="Resource_apruh"]
+script = ExtResource("2_5pcdv")
+name = "Ice power"
+tag = "ice"
+event = SubResource("InputEventKey_d8cnb")
+
+[sub_resource type="InputEventKey" id="InputEventKey_yu7jx"]
+device = -1
+pressed = true
+keycode = 75
+unicode = 107
+
+[sub_resource type="Resource" id="Resource_d2tnq"]
+script = ExtResource("2_5pcdv")
+name = "Fire power"
+tag = "fire"
+event = SubResource("InputEventKey_yu7jx")
+
+[sub_resource type="InputEventKey" id="InputEventKey_hkpol"]
+device = -1
+pressed = true
+keycode = 76
+unicode = 108
+
+[sub_resource type="Resource" id="Resource_krhd7"]
+script = ExtResource("2_5pcdv")
+name = "Wind power"
+tag = "wind"
+event = SubResource("InputEventKey_hkpol")
+
+[node name="KeybindsManager" type="Node"]
+script = ExtResource("1_baegl")
+keybinds = Array[ExtResource("2_5pcdv")]([SubResource("Resource_11i35"), SubResource("Resource_p2lcp"), SubResource("Resource_sy20r"), SubResource("Resource_apruh"), SubResource("Resource_d2tnq"), SubResource("Resource_krhd7")])
