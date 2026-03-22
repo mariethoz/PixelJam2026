@@ -35,6 +35,8 @@ func _ready():
 	animation_hit.visible = false
 
 func _on_hit(damage: int):
+	if dead:
+		return
 	hp -= damage
 	animation_hit.visible = true
 	body.visible = false
@@ -43,27 +45,24 @@ func _on_hit(damage: int):
 		animation_hit.animation_finished.connect(_on_hit_finished)
 	print("HP: " + str(hp))
 	if hp <= 0:
+		animation_hit.visible = false
 		dead = true
 		velocity = Vector2.ZERO
 		body.visible = false
 		weapon.visible = false
 		animation_die.visible = true
 		animation_die.play("die")
-		if not animation_die.animation_finished.is_connected(_on_die_finished):
-			animation_die.animation_finished.connect(_on_die_finished)
-			
+		await animation_die.animation_finished
+		end_of_game.emit()
+
 func _on_hit_finished():
+	if dead:
+		return
 	animation_hit.visible = false
 	body.visible = true
 	
 func _on_die_finished():
 	body.visible = false
-	end_of_game()
-
-func end_of_game():
-	get_tree().paused = true
-	get_tree().change_scene_to_file("res://PixelJam2026/UI/title.tscn")
-	print("End of game")
 
 func _on_knock(dir: Vector2):
 	if dead:
@@ -79,6 +78,8 @@ func attack_break():
 	knockback_time = 0.3
 
 func update_animation():
+	if dead:
+		return
 	if hp <= 0:
 		animation_motion["parameters/conditions/is_dead"] = true
 		animation_motion["parameters/conditions/is_walking"] = false

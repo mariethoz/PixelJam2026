@@ -13,11 +13,12 @@ func _ready():
 	for d in items:
 		ItemsManager.add_munition(d)
 	time_start = Time.get_unix_time_from_system()
+	player.end_of_game.connect(_on_player_end_of_game)
 
 
 func _on_player_end_of_game():
 	print("Move to title...")
-	if title:
+	if title and get_tree():
 		get_tree().change_scene_to_file(title)
 	else:
 		print("Game title not assigned!")

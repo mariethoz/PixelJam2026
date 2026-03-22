@@ -281,5 +281,4 @@ position = Vector2(1407, 695)
 [node name="WallFace2" parent="Walls/HouseBottomRight" instance=ExtResource("13_l4l0j")]
 position = Vector2(1229, 1094)
 
-[connection signal="end_of_game" from="Player" to="." method="_on_player_end_of_game"]
 [connection signal="timeout" from="Spawn/Timer" to="Spawn" method="_on_timer_timeout"]
