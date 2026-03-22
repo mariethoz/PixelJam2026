@@ -14,6 +14,7 @@ class_name Player extends CharacterBody2D
 @onready var animation_motion = %AnimationMotion
 @onready var animation_attack = %AnimationAttack
 @onready var animation_die = %AnimatedSpriteDie2D
+@onready var animation_hit = %AnimatedSpriteHit2D
 @onready var charge_keyboard = %ChargeKeyboard
 
 var knockback: Vector2 = Vector2.ZERO
@@ -29,9 +30,15 @@ var dead = false
 
 func _ready():
 	animation_die.visible = false
+	animation_hit.visible = false
 
 func _on_hit(damage: int):
 	hp -= damage
+	animation_hit.visible = true
+	body.visible = false
+	animation_hit.play("hit")
+	if not animation_hit.animation_finished.is_connected(_on_hit_finished):
+		animation_hit.animation_finished.connect(_on_hit_finished)
 	print("HP: " + str(hp))
 	if hp <= 0:
 		dead = true
@@ -40,9 +47,15 @@ func _on_hit(damage: int):
 		weapon.visible = false
 		animation_die.visible = true
 		animation_die.play("die")
-		animation_die.animation_finished.connect(_on_die_finished)
+		if not animation_die.animation_finished.is_connected(_on_die_finished):
+			animation_die.animation_finished.connect(_on_die_finished)
 			
+func _on_hit_finished():
+	animation_hit.visible = false
+	body.visible = true
+	
 func _on_die_finished():
+	body.visible = false
 	end_of_game()
 
 func end_of_game():
@@ -85,6 +98,8 @@ func update_animation():
 	animation_motion["parameters/Idle/blend_position"] = blend_rotation
 	animation_motion["parameters/Walk/blend_position"] = blend_rotation
 	animation_motion["parameters/Dead/blend_position"] = blend_rotation
+	animation_die.flip_h = blend_rotation == 1
+	animation_hit.flip_h = blend_rotation == 1
 
 func get_input():
 	var rotation_direction = get_global_mouse_position().angle_to_point(position)
