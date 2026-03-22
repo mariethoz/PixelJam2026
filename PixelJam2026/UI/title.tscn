@@ -49,7 +49,6 @@ corner_radius_bottom_left = 100
 
 [node name="Title" type="CanvasLayer"]
 script = ExtResource("1_ml466")
-game_scene = "res://PixelJam2026/Map/Level0.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15

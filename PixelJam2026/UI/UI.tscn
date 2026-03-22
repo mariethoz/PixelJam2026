@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://n1jklne2iiku"]
+[gd_scene load_steps=15 format=3 uid="uid://dmdqytfdgy3od"]
 
 [ext_resource type="Script" path="res://PixelJam2026/UI/ui.gd" id="1_uhq81"]
 [ext_resource type="Texture2D" uid="uid://dhjbuuoxjnys0" path="res://PixelJam2026/Assets/Misc/inventaire placeholder.png" id="1_v43x2"]
-[ext_resource type="PackedScene" uid="uid://bm57xl1q4j85n" path="res://PixelJam2026/UI/inventory_slot.tscn" id="3_25okd"]
+[ext_resource type="PackedScene" path="res://PixelJam2026/UI/inventory_slot.tscn" id="3_25okd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu1ye"]
 

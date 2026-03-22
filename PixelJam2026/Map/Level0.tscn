@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0lm0w7i3nidu"]
+[gd_scene load_steps=26 format=3 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://PixelJam2026/Map/spawn.gd" id="6_dh4lj"]
 [ext_resource type="PackedScene" uid="uid://bncxfwle1ulsu" path="res://PixelJam2026/Obstacles/Decor/caillou.tscn" id="6_tcxew"]
 [ext_resource type="PackedScene" uid="uid://cgpyh218o7ihy" path="res://PixelJam2026/Obstacles/Decor/rocher.tscn" id="7_2dde8"]
-[ext_resource type="PackedScene" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
+[ext_resource type="PackedScene" uid="uid://cbgvlad2cefc1" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
 [ext_resource type="PackedScene" uid="uid://b0duudcq6eqnc" path="res://PixelJam2026/Items/spawn_obstacles.tscn" id="8_2iemn"]
 [ext_resource type="Script" path="res://PixelJam2026/Items/obstacl_proba.gd" id="9_68na3"]
-[ext_resource type="PackedScene" path="res://PixelJam2026/UI/UI.tscn" id="10_wd72q"]
+[ext_resource type="PackedScene" uid="uid://dmdqytfdgy3od" path="res://PixelJam2026/UI/UI.tscn" id="10_wd72q"]
 [ext_resource type="PackedScene" uid="uid://dctne4bifsqls" path="res://PixelJam2026/Obstacles/Wall/wall_profil.tscn" id="12_0lfhj"]
 [ext_resource type="PackedScene" uid="uid://dabvffpcqke37" path="res://PixelJam2026/Characters/Ennemies/moster_blue.tscn" id="12_t7hlr"]
 [ext_resource type="PackedScene" uid="uid://cbwr6ratl6sc4" path="res://PixelJam2026/Obstacles/Wall/wall_face.tscn" id="13_l4l0j"]
@@ -22,6 +22,10 @@
 vertices = PackedVector2Array(1998.98, 1992.93, -1991, 1969.05, -1991, -1984.01, 1993.01, -1989.98)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2003, -2000, -2001, -1994, -2001, 1979, 2009, 2003)])
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxi5d"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_f7j30"]
 script = ExtResource("9_68na3")
@@ -57,6 +61,7 @@ obstacle = ExtResource("5_ahsqg")
 y_sort_enabled = true
 script = ExtResource("1_5e7dl")
 player = NodePath("Player")
+title = "res://PixelJam2026/UI/title.tscn"
 
 [node name="Navigation" type="Node2D" parent="."]
 z_index = -5
@@ -90,6 +95,18 @@ texture = ExtResource("4_mr0tf")
 position = Vector2(269, 300)
 
 [node name="Ui" parent="." instance=ExtResource("10_wd72q")]
+
+[node name="Label" type="Label" parent="Ui"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_fxi5d")
 
 [node name="Tree" type="Node2D" parent="."]
 position = Vector2(-2085, 2408)
@@ -264,4 +281,5 @@ position = Vector2(1407, 695)
 [node name="WallFace2" parent="Walls/HouseBottomRight" instance=ExtResource("13_l4l0j")]
 position = Vector2(1229, 1094)
 
+[connection signal="end_of_game" from="Player" to="." method="_on_player_end_of_game"]
 [connection signal="timeout" from="Spawn/Timer" to="Spawn" method="_on_timer_timeout"]
