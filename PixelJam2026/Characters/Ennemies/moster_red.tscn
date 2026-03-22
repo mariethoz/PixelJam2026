@@ -1,19 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://dfktiyhchniuq"]
+[gd_scene load_steps=33 format=3 uid="uid://b1rfolmxh5nov"]
 
-[ext_resource type="Script" path="res://PixelJam2026/Characters/Ennemies/enemy.gd" id="1_4ceu1"]
-[ext_resource type="Texture2D" uid="uid://cturl2573nube" path="res://PixelJam2026/Characters/Ennemies/en1/en1/monstre neutre.png" id="2_2badm"]
-[ext_resource type="AnimationLibrary" uid="uid://dpe4yoduw27sn" path="res://PixelJam2026/Characters/Ennemies/monster_base.res" id="3_b16qm"]
-[ext_resource type="PackedScene" uid="uid://cs0dc1fa82guw" path="res://PixelJam2026/Characters/Helper/hurt_box.tscn" id="3_oisl8"]
-[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="4_3kxij"]
+[ext_resource type="Script" path="res://PixelJam2026/Characters/Ennemies/enemy.gd" id="1_bxhda"]
+[ext_resource type="Texture2D" uid="uid://bna6phpeu186h" path="res://PixelJam2026/Assets/Sprites/monstres/monstre gros (rose)/monstre2.png" id="2_410tp"]
+[ext_resource type="AnimationLibrary" uid="uid://kwuxiovdih74" path="res://PixelJam2026/Characters/Ennemies/monstre_red.res" id="3_2xctw"]
+[ext_resource type="PackedScene" uid="uid://cs0dc1fa82guw" path="res://PixelJam2026/Characters/Helper/hurt_box.tscn" id="4_51s6d"]
+[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="5_rukhh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xd25f"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qql3j"]
 radius = 30.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4clim"]
-animation = &"hurt_left"
+animation = &"monstre_red/hurt_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4qxd0"]
-animation = &"hurt_right"
+animation = &"monstre_red/hurt_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_s5yte"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_4clim")
@@ -33,10 +33,10 @@ nodes/output/position = Vector2(980, 120)
 node_connections = [&"TimeScale", 0, &"BlendSpace1D", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owon7"]
-animation = &"idle_left"
+animation = &"monstre_red/idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_of2n4"]
-animation = &"idle_right"
+animation = &"monstre_red/idle_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_4hurg"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_owon7")
@@ -112,7 +112,7 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_walking"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2oj8a"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ww0om"]
 states/Hurt/node = SubResource("AnimationNodeBlendTree_3efbw")
 states/Hurt/position = Vector2(640, 147)
 states/Idle/node = SubResource("AnimationNodeBlendTree_008ip")
@@ -122,25 +122,24 @@ states/Walk/node = SubResource("AnimationNodeBlendTree_3806e")
 states/Walk/position = Vector2(333, 226)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_h2ypa"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_pnc3c"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_e3kgf"), "Hurt", "End", SubResource("AnimationNodeStateMachineTransition_5y08m"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_a0ly5"), "Walk", "Hurt", SubResource("AnimationNodeStateMachineTransition_ucllp"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_m1u1r"), "Hurt", "Walk", SubResource("AnimationNodeStateMachineTransition_jwsru")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jdgil"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldvuk"]
 radius = 80.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jfkbx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_465d5"]
 radius = 60.0
 
-[node name="En1" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent", "animation_motion")]
-collision_layer = 4
-collision_mask = 4
+[node name="MonsterRed" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent", "animation_motion")]
 motion_mode = 1
-wall_min_slide_angle = 0.0
-script = ExtResource("1_4ceu1")
-def_knockback_time = 1.0
+script = ExtResource("1_bxhda")
+speed = 150
+hp = 20
 navigation_agent = NodePath("NavigationAgent2D")
 animation_motion = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3375, 0.3375)
-texture = ExtResource("2_2badm")
+texture = ExtResource("2_410tp")
+flip_h = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
@@ -148,40 +147,39 @@ avoidance_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CircleShape2D_xd25f")
+shape = SubResource("CircleShape2D_qql3j")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../Timer")
 libraries = {
-"monster_base": ExtResource("3_b16qm")
+"monstre_red": ExtResource("3_2xctw")
 }
-tree_root = SubResource("AnimationNodeStateMachine_2oj8a")
+tree_root = SubResource("AnimationNodeStateMachine_ww0om")
 parameters/conditions/is_dead = false
 parameters/conditions/is_hurt = false
-parameters/conditions/is_idle = true
+parameters/conditions/is_idle = false
 parameters/conditions/is_walking = false
 parameters/Hurt/BlendSpace1D/blend_position = 0
-parameters/Hurt/TimeScale/scale = 2.0
-parameters/Idle/BlendSpace1D/blend_position = 0
+parameters/Hurt/TimeScale/scale = 1.0
+parameters/Idle/BlendSpace1D/blend_position = 0.0020647
 parameters/Idle/TimeScale/scale = 1.0
 parameters/Walk/BlendSpace1D/blend_position = 0
-parameters/Walk/TimeScale/scale = 2.0
+parameters/Walk/TimeScale/scale = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="HurtBox" parent="." node_paths=PackedStringArray("emmiter") instance=ExtResource("3_oisl8")]
-damage = 1
+[node name="HurtBox" parent="." node_paths=PackedStringArray("emmiter") instance=ExtResource("4_51s6d")]
+damage = 4
 emmiter = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CircleShape2D_jdgil")
+shape = SubResource("CircleShape2D_ldvuk")
 debug_color = Color(0, 0.6, 0, 0.419608)
 
-[node name="HitBox" parent="." instance=ExtResource("4_3kxij")]
+[node name="HitBox" parent="." instance=ExtResource("5_rukhh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_jfkbx")
+shape = SubResource("CircleShape2D_465d5")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

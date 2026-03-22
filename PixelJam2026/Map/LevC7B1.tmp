@@ -1,11 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0lm0w7i3nidu"]
+[gd_scene load_steps=24 format=3 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
 [ext_resource type="PackedScene" uid="uid://dqgkjats5qag0" path="res://PixelJam2026/Obstacles/Decor/arbre.tscn" id="4_ivyyo"]
 [ext_resource type="Texture2D" uid="uid://51yoft145lsq" path="res://PixelJam2026/Assets/Tiles/MAP/MAP.jpg" id="4_mr0tf"]
 [ext_resource type="PackedScene" uid="uid://chh6iscc43i22" path="res://PixelJam2026/Obstacles/Decor/buisson.tscn" id="5_ahsqg"]
-[ext_resource type="Script" path="res://PixelJam2026/Map/spawn.gd" id="6_dh4lj"]
 [ext_resource type="PackedScene" uid="uid://bncxfwle1ulsu" path="res://PixelJam2026/Obstacles/Decor/caillou.tscn" id="6_tcxew"]
 [ext_resource type="PackedScene" uid="uid://cgpyh218o7ihy" path="res://PixelJam2026/Obstacles/Decor/rocher.tscn" id="7_2dde8"]
 [ext_resource type="PackedScene" uid="uid://cbgvlad2cefc1" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
@@ -134,7 +133,6 @@ position = Vector2(2702, -4023)
 position = Vector2(3798, -3322)
 
 [node name="Spawn" type="Node2D" parent="."]
-script = ExtResource("6_dh4lj")
 
 [node name="Forest" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("8_2iemn")]
 position = Vector2(844, -870)
@@ -161,24 +159,18 @@ position = Vector2(1135, -1320)
 enemy_scene = ExtResource("12_t7hlr")
 parent = NodePath("../..")
 radius = 500.0
-wait_time = 3.0
 
 [node name="Enemy2" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
 position = Vector2(-1197, 1559)
 enemy_scene = ExtResource("13_wrg7x")
 parent = NodePath("../..")
 radius = 500.0
-wait_time = 5.0
 
 [node name="Enemy3" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
 position = Vector2(-1511, -1486)
 enemy_scene = ExtResource("14_0ud1v")
 parent = NodePath("../..")
 radius = 500.0
-wait_time = 10.0
-
-[node name="Timer" type="Timer" parent="Spawn"]
-autostart = true
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -263,5 +255,3 @@ position = Vector2(1407, 695)
 
 [node name="WallFace2" parent="Walls/HouseBottomRight" instance=ExtResource("13_l4l0j")]
 position = Vector2(1229, 1094)
-
-[connection signal="timeout" from="Spawn/Timer" to="Spawn" method="_on_timer_timeout"]

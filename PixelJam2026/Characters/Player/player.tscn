@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=3 uid="uid://rwbt4aqt1pqf"]
+[gd_scene load_steps=183 format=3 uid="uid://rwbt4aqt1pqf"]
 
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Player/player.gd" id="1_2g8rw"]
 [ext_resource type="Texture2D" uid="uid://c3dg78wra71v6" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0000.png" id="2_jje0e"]
@@ -84,10 +84,18 @@
 [ext_resource type="Texture2D" uid="uid://sxx4cpq3ix60" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_W.png" id="53_4uuay"]
 [ext_resource type="Texture2D" uid="uid://dpm3yrmiypyp6" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_W.png" id="54_npn4h"]
 [ext_resource type="Texture2D" uid="uid://k0kc8kr0bfk3" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_X.png" id="55_lnlea"]
+[ext_resource type="Texture2D" uid="uid://c3g6i5boqinxe" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_X.png" id="55_safw2"]
 [ext_resource type="Texture2D" uid="uid://87v24jp5v8ys" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Y.png" id="56_dx4yh"]
 [ext_resource type="Texture2D" uid="uid://b0ixmnjivxsgc" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Y.png" id="57_cdx5o"]
 [ext_resource type="Texture2D" uid="uid://dwok422sviptt" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Z.png" id="58_5bquk"]
 [ext_resource type="Texture2D" uid="uid://bpn2gp08s1jxw" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Z.png" id="59_4yewv"]
+[ext_resource type="Texture2D" uid="uid://dcjkta3s4sqnj" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0006.png" id="66_nhqwt"]
+[ext_resource type="Texture2D" uid="uid://bvtkkuy6ixw1o" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0005.png" id="81_nkvi8"]
+[ext_resource type="Texture2D" uid="uid://dkstl7uow4sjm" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0004.png" id="82_n7x3o"]
+[ext_resource type="Texture2D" uid="uid://brp1ghriea37j" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0003.png" id="83_iut5f"]
+[ext_resource type="Texture2D" uid="uid://b6a6mgo2axu72" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0002.png" id="84_32mb2"]
+[ext_resource type="Texture2D" uid="uid://bj2xbyo7oewfm" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0001.png" id="85_nmiog"]
+[ext_resource type="Texture2D" uid="uid://g2da7jvh1ucg" path="res://PixelJam2026/Assets/Sprites/effets/charge_magie/particules_magie_0000.png" id="86_1ofhi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5v71"]
 radius = 25.0
@@ -238,7 +246,7 @@ texture_pressed = ExtResource("54_npn4h")
 [sub_resource type="Resource" id="Resource_chsk7"]
 script = ExtResource("37_suln5")
 keycode = "X"
-texture_neutre = ExtResource("53_4uuay")
+texture_neutre = ExtResource("55_safw2")
 texture_pressed = ExtResource("55_lnlea")
 
 [sub_resource type="Resource" id="Resource_dgtna"]
@@ -922,6 +930,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("effect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("effect:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("66_nhqwt")]
+}
 
 [sub_resource type="Animation" id="Animation_d5545"]
 resource_name = "attack_gun"
@@ -1063,6 +1095,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("effect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("effect:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.253832, 0.353832, 0.453832, 0.553832, 0.653832, 0.753832, 0.853832),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("66_nhqwt"), ExtResource("81_nkvi8"), ExtResource("82_n7x3o"), ExtResource("83_iut5f"), ExtResource("84_32mb2"), ExtResource("85_nmiog"), ExtResource("86_1ofhi")]
 }
 
 [sub_resource type="Animation" id="Animation_cyhgb"]
@@ -1531,9 +1587,9 @@ scale = Vector2(0.228328, 0.228328)
 texture = ExtResource("2_jje0e")
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(0, -25)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pu8gj")
+offset = Vector2(0, -100)
 
 [node name="SwordImpact" parent="Body" node_paths=PackedStringArray("emmiter") instance=ExtResource("5_y7h1g")]
 unique_name_in_owner = true
@@ -1605,6 +1661,10 @@ emmiter = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyboardImpact"]
 shape = SubResource("CircleShape2D_w30it")
+
+[node name="effect" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("66_nhqwt")
 
 [connection signal="keyboard_charged" from="Camera2D/ChargeKeyboard" to="." method="_on_charge_keyboard_keyboard_charged"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit"]

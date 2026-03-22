@@ -15,6 +15,8 @@ var knockback_time: float = 0
 var is_knock: bool = false
 var blend_rotation: float = 0
 
+signal destroied
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
@@ -22,6 +24,7 @@ func _on_hit(damage: int):
 	print("Enemy")
 	hp -= damage
 	if hp <= 0:
+		self.destroied.emit()
 		self.queue_free()
 
 func _on_knock(dir: Vector2):
