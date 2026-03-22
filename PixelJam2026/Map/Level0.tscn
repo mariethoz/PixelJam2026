@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=19 format=3 uid="uid://b0lm0w7i3nidu"]
+=======
+[gd_scene load_steps=13 format=3 uid="uid://b0lm0w7i3nidu"]
+>>>>>>> 5764157698f310b323d6ceebdcdf3b189e50fb95
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
@@ -9,8 +13,12 @@
 [ext_resource type="PackedScene" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
 [ext_resource type="PackedScene" uid="uid://b0duudcq6eqnc" path="res://PixelJam2026/Items/spawn_obstacles.tscn" id="8_2iemn"]
 [ext_resource type="Script" path="res://PixelJam2026/Items/obstacl_proba.gd" id="9_68na3"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cmeqv8icb0cb3" path="res://PixelJam2026/Items/bones.tscn" id="10_ic7uk"]
 [ext_resource type="PackedScene" uid="uid://dcj7efm445ps7" path="res://PixelJam2026/Items/crate.tscn" id="11_1blp3"]
+=======
+[ext_resource type="PackedScene" uid="uid://n1jklne2iiku" path="res://PixelJam2026/UI/UI.tscn" id="10_wd72q"]
+>>>>>>> 5764157698f310b323d6ceebdcdf3b189e50fb95
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7lubq"]
 vertices = PackedVector2Array(1688.51, -213.172, 1711.87, 217.102, 1279.69, 1170.67, -767.703, 1069.49, -728.289, -231.008, 641.82, -232.992)
@@ -81,6 +89,7 @@ parent = NodePath("..")
 position = Vector2(-388, 210)
 parent = NodePath("..")
 radius = 500.0
+<<<<<<< HEAD
 obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev"), SubResource("Resource_dihot"), SubResource("Resource_m0gmu"), SubResource("Resource_kqctq"), SubResource("Resource_5ghs5"), SubResource("Resource_yrmt1")])
 
 [node name="Bones" parent="." instance=ExtResource("10_ic7uk")]
@@ -88,3 +97,8 @@ position = Vector2(572, 513)
 
 [node name="Crate" parent="." instance=ExtResource("11_1blp3")]
 position = Vector2(-60, 462)
+=======
+obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev")])
+
+[node name="Ui" parent="." instance=ExtResource("10_wd72q")]
+>>>>>>> 5764157698f310b323d6ceebdcdf3b189e50fb95

@@ -8,18 +8,21 @@ class_name Player extends CharacterBody2D
 
 @onready var weapon = %Weapon
 @onready var gun_shot = %GunShot
-@onready var hurt_box = %HurtBox
+@onready var sword_impact = %SwordImpact
 
 @onready var animation_motion = %AnimationMotion
 @onready var animation_attack = %AnimationAttack
+@onready var charge_keyboard = %ChargeKeyboard
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0
 
 var blend_rotation: float = 0
 var is_attacking = false
+var is_charging = false
 var have_sword = true
 var have_gun = false
+var have_keyboard = false
 
 func _on_hit(damage: int):
 	hp -= damage
@@ -27,6 +30,9 @@ func _on_hit(damage: int):
 func _on_knock(dir: Vector2):
 	knockback_time = 1
 	knockback = dir
+
+func _on_charge_keyboard_keyboard_charged():
+	is_charging = false
 
 func attack_break():
 	knockback_time = 0.3
@@ -38,15 +44,18 @@ func update_animation():
 		animation_motion["parameters/conditions/is_idle"] = false
 	else:
 		animation_attack["parameters/conditions/is_attacking"] = is_attacking
+		animation_attack["parameters/conditions/is_charged"] = not is_charging
 		if (velocity == Vector2.ZERO):
 			animation_motion["parameters/conditions/is_walking"] = false
 			animation_motion["parameters/conditions/is_idle"] = true
 		else:
 			animation_motion["parameters/conditions/is_walking"] = true
 			animation_motion["parameters/conditions/is_idle"] = false
-
+	
 	animation_attack["parameters/conditions/have_sword"] = have_sword
 	animation_attack["parameters/conditions/have_gun"] = have_gun
+	animation_attack["parameters/conditions/have_keyboard"] = have_keyboard
+	
 	animation_motion["parameters/Idle/blend_position"] = blend_rotation
 	animation_motion["parameters/Walk/blend_position"] = blend_rotation
 	animation_motion["parameters/Dead/blend_position"] = blend_rotation
@@ -58,7 +67,7 @@ func get_input():
 	else:
 		blend_rotation = -1
 
-	hurt_box.set_rotation(rotation_direction)
+	sword_impact.set_rotation(rotation_direction)
 	gun_shot.set_rotation(rotation_direction)
 	if rotation_direction <= -PI/angle_block and rotation_direction >= -(angle_block-1)*PI/angle_block:
 		if rotation_direction < -PI/2:
@@ -69,17 +78,27 @@ func get_input():
 	weapon.set_rotation(rotation_direction)
 
 	if Input.is_action_just_pressed("switch_arm"):
-		have_gun = !have_gun
-		have_sword = !have_sword
+		if have_keyboard:
+			have_sword = true
+			have_keyboard = false
+		elif have_gun:
+			have_keyboard = true
+			have_gun = false
+		elif have_sword:
+			have_gun = true
+			have_sword = false
 
 	if Input.is_action_just_pressed("click"):
+		if have_keyboard and not is_charging:
+			charge_keyboard.charge_keyboard()
+			is_charging = true
 		is_attacking = true
 
 	if Input.is_action_just_released("click"):
 		is_attacking = false
 
-	update_animation()
-
+	if is_charging:
+		return Vector2.ZERO
 	return Input.get_vector("left", "right", "up", "down") * speed
 
 
@@ -92,4 +111,6 @@ func _physics_process(delta):
 		if knockback_time <= 0:
 			knockback = Vector2.ZERO
 	velocity = new_velocity
+	
+	update_animation()
 	move_and_slide()
