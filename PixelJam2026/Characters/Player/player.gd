@@ -9,9 +9,11 @@ class_name Player extends CharacterBody2D
 @onready var weapon = %Weapon
 @onready var gun_shot = %GunShot
 @onready var sword_impact = %SwordImpact
+@onready var body = $Body
 
 @onready var animation_motion = %AnimationMotion
 @onready var animation_attack = %AnimationAttack
+@onready var animation_die = %AnimatedSpriteDie2D
 @onready var charge_keyboard = %ChargeKeyboard
 
 var knockback: Vector2 = Vector2.ZERO
@@ -23,13 +25,37 @@ var is_charging = false
 var have_sword = true
 var have_gun = false
 var have_keyboard = false
+var dead = false
+
+func _ready():
+	animation_die.visible = false
 
 func _on_hit(damage: int):
 	hp -= damage
+	print("HP: " + str(hp))
+	if hp <= 0:
+		dead = true
+		velocity = Vector2.ZERO
+		body.visible = false
+		weapon.visible = false
+		animation_die.visible = true
+		animation_die.play("die")
+		animation_die.animation_finished.connect(_on_die_finished)
+			
+func _on_die_finished():
+	end_of_game()
+
+func end_of_game():
+	get_tree().paused = true
+	get_tree().change_scene_to_file("res://PixelJam2026/UI/title.tscn")
+	print("End of game")
 
 func _on_knock(dir: Vector2):
-	knockback_time = 1
-	knockback = dir
+	if dead:
+		knockback = Vector2.ZERO
+	else:
+		knockback_time = 1
+		knockback = dir
 
 func _on_charge_keyboard_keyboard_charged():
 	is_charging = false
@@ -112,5 +138,6 @@ func _physics_process(delta):
 			knockback = Vector2.ZERO
 	velocity = new_velocity
 	
-	update_animation()
-	move_and_slide()
+	if !dead:
+		update_animation()
+		move_and_slide()

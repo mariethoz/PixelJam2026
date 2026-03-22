@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=3 uid="uid://rwbt4aqt1pqf"]
+[gd_scene load_steps=194 format=3 uid="uid://rwbt4aqt1pqf"]
 
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Player/player.gd" id="1_2g8rw"]
 [ext_resource type="Texture2D" uid="uid://c3dg78wra71v6" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0000.png" id="2_jje0e"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cs0dc1fa82guw" path="res://PixelJam2026/Characters/Helper/hurt_box.tscn" id="5_y7h1g"]
 [ext_resource type="Texture2D" uid="uid://df65thwpyn7lt" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0002.png" id="6_adren"]
 [ext_resource type="Texture2D" uid="uid://bnypv0cy1esi5" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0000.png" id="7_8rkxa"]
-[ext_resource type="PackedScene" uid="uid://bn1h85edix86h" path="res://PixelJam2026/Characters/Player/charge_keyboard.tscn" id="7_kajvw"]
+[ext_resource type="PackedScene" path="res://PixelJam2026/Characters/Player/charge_keyboard.tscn" id="7_kajvw"]
 [ext_resource type="Texture2D" uid="uid://cg3vk17pv5pk1" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0001.png" id="8_su7nj"]
 [ext_resource type="Texture2D" uid="uid://c32abhwxcy62o" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0003.png" id="9_j8tyv"]
 [ext_resource type="Texture2D" uid="uid://lmht5x5eov72" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0001.png" id="10_8xe2v"]
@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dsqcaeggcylex" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_H.png" id="24_xywpk"]
 [ext_resource type="Texture2D" uid="uid://c3bdasri4ri2a" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_I.png" id="25_shnv5"]
 [ext_resource type="Texture2D" uid="uid://50b2bcms12xx" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/clavier_magique.png" id="26_75yyk"]
-[ext_resource type="PackedScene" uid="uid://dvityagbuudxk" path="res://PixelJam2026/Characters/Player/bullet.tscn" id="26_mng6n"]
+[ext_resource type="PackedScene" path="res://PixelJam2026/Characters/Player/bullet.tscn" id="26_mng6n"]
 [ext_resource type="Texture2D" uid="uid://0go2b3btm88p" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_I.png" id="26_uuxui"]
 [ext_resource type="Texture2D" uid="uid://c6lbei4xqj8o" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0000.png" id="27_gl5x7"]
 [ext_resource type="Texture2D" uid="uid://cupxscm5ofw7e" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_J.png" id="27_ofu6x"]
@@ -88,6 +88,24 @@
 [ext_resource type="Texture2D" uid="uid://b0ixmnjivxsgc" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Y.png" id="57_cdx5o"]
 [ext_resource type="Texture2D" uid="uid://dwok422sviptt" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Z.png" id="58_5bquk"]
 [ext_resource type="Texture2D" uid="uid://bpn2gp08s1jxw" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Z.png" id="59_4yewv"]
+[ext_resource type="Texture2D" uid="uid://ddlpeff5yrqrd" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0000.png" id="89_03yja"]
+[ext_resource type="Texture2D" uid="uid://yhp65jh4tv6p" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0001.png" id="90_iwkpe"]
+[ext_resource type="Texture2D" uid="uid://bixef7alikc2u" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0002.png" id="91_dmtlk"]
+[ext_resource type="Texture2D" uid="uid://iwovocn6q4mq" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0003.png" id="92_x5h10"]
+[ext_resource type="Texture2D" uid="uid://bxcwmt7s0f3om" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0004.png" id="93_snry3"]
+[ext_resource type="Texture2D" uid="uid://v7d6wqrodge" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0005.png" id="94_jv763"]
+[ext_resource type="Texture2D" uid="uid://bd4xe3nmr7bpt" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0006.png" id="95_ys7cn"]
+[ext_resource type="Texture2D" uid="uid://cp51arno4tbi2" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0007.png" id="96_uedl6"]
+[ext_resource type="Texture2D" uid="uid://84ssuh540ygg" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0008.png" id="97_c3gtt"]
+[ext_resource type="Texture2D" uid="uid://bgf4q5mx4kexs" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0009.png" id="98_tm18a"]
+[ext_resource type="Texture2D" uid="uid://cbk15gpsjtkeq" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0010.png" id="99_tvn8w"]
+[ext_resource type="Texture2D" uid="uid://dgau146ng14tg" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0011.png" id="100_a0jrq"]
+[ext_resource type="Texture2D" uid="uid://dr25xy64fnh0p" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0012.png" id="101_t6qvt"]
+[ext_resource type="Texture2D" uid="uid://bfijatr2na143" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0013.png" id="102_sorya"]
+[ext_resource type="Texture2D" uid="uid://bwo7guajj70g6" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0014.png" id="103_mex1e"]
+[ext_resource type="Texture2D" uid="uid://bwdrc3ba2rlw3" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0015.png" id="104_q3jyf"]
+[ext_resource type="Texture2D" uid="uid://dvm062iqsfb53" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0016.png" id="105_e12ig"]
+[ext_resource type="Texture2D" uid="uid://cpv8dftvmi364" path="res://PixelJam2026/Assets/Sprites/personnage/perso/animation/mort/mort_0017.png" id="106_4qmvw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5v71"]
 radius = 25.0
@@ -1515,6 +1533,68 @@ height = 90.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_w30it"]
 radius = 253.663
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ydgl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("89_03yja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_iwkpe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_dmtlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_x5h10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_snry3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_jv763")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_ys7cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_uedl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_c3gtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_tm18a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_tvn8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_a0jrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_t6qvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_sorya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_mex1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_q3jyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_e12ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_4qmvw")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 motion_mode = 1
@@ -1605,6 +1685,13 @@ emmiter = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyboardImpact"]
 shape = SubResource("CircleShape2D_w30it")
+
+[node name="AnimatedSpriteDie2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(76, -31)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ydgl3")
+animation = &"die"
 
 [connection signal="keyboard_charged" from="Camera2D/ChargeKeyboard" to="." method="_on_charge_keyboard_keyboard_charged"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit"]
