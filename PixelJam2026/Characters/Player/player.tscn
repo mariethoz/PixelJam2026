@@ -1090,9 +1090,8 @@ parameters/conditions/have_sword = true
 parameters/conditions/is_attacking = false
 parameters/AttackGun/TimeScale/scale = 3.0
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("4_5uw3y")]
+[node name="HitBox" parent="." instance=ExtResource("4_5uw3y")]
 collision_mask = 16
-receiver = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -24)
@@ -1104,3 +1103,6 @@ visible = false
 scale = Vector2(0.352476, 0.352476)
 sprite_frames = SubResource("SpriteFrames_ddypk")
 animation = &"walk"
+
+[connection signal="hit" from="HitBox" to="." method="_on_hit"]
+[connection signal="knock" from="HitBox" to="." method="_on_knock"]

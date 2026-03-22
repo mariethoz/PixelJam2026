@@ -2,7 +2,7 @@ class_name Bullet extends CharacterBody2D
 
 @onready var hurt_box = %HurtBox
 
-var speed = 200
+var speed = 600
 
 func set_damage(dmg: int):
 	hurt_box.damage = dmg

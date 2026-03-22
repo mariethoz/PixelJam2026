@@ -339,8 +339,9 @@ radius = 60.0
 
 [node name="En1" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent", "animation_motion")]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 4
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_4ceu1")
 def_knockback_time = 1.0
 navigation_agent = NodePath("NavigationAgent2D")
@@ -351,6 +352,9 @@ scale = Vector2(0.3375, 0.3375)
 texture = ExtResource("2_2badm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -384,11 +388,12 @@ emmiter = NodePath("..")
 shape = SubResource("CircleShape2D_jdgil")
 debug_color = Color(0, 0.6, 0, 0.419608)
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("4_3kxij")]
-receiver = NodePath("..")
+[node name="HitBox" parent="." instance=ExtResource("4_3kxij")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_jfkbx")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="hit" from="HitBox" to="." method="_on_hit"]
+[connection signal="knock" from="HitBox" to="." method="_on_knock"]

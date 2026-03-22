@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0duudcq6eqnc"]
+
+[ext_resource type="Script" path="res://PixelJam2026/Items/spawn_obstacles.gd" id="1_4wxdr"]
+
+[node name="SpawnObstacles" type="Marker2D"]
+script = ExtResource("1_4wxdr")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true

@@ -18,12 +18,13 @@ var blend_rotation: float = 0
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
-func hit(damage: int):
+func _on_hit(damage: int):
+	print("Enemy")
 	hp -= damage
 	if hp <= 0:
 		self.queue_free()
 
-func knock(dir: Vector2):
+func _on_knock(dir: Vector2):
 	is_knock = true
 	knockback_time = def_knockback_time
 	knockback = dir

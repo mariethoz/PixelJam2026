@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bncxfwle1ulsu"]
+[gd_scene load_steps=8 format=3 uid="uid://bncxfwle1ulsu"]
 
-[ext_resource type="Script" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.gd" id="1_q1gpy"]
-[ext_resource type="Texture2D" uid="uid://yv0xd64v66a1" path="res://PixelJam2026/Assets/Sprites/décor/obstacles/caillou.png" id="1_rre4a"]
+[ext_resource type="Script" path="res://PixelJam2026/Obstacles/caillou.gd" id="1_ee3bx"]
+[ext_resource type="Texture2D" uid="uid://yv0xd64v66a1" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/caillou.png" id="1_rre4a"]
 [ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="2_odqmw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yx0o8"]
+radius = 16.0
+height = 76.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcltj"]
 radius = 25.0
@@ -41,16 +45,24 @@ _data = {
 "hit": SubResource("Animation_14llm")
 }
 
-[node name="Caillou" type="Node2D"]
-script = ExtResource("1_q1gpy")
+[node name="Caillou" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ee3bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yx0o8")
 
 [node name="Caillou" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rre4a")
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("receiver") instance=ExtResource("2_odqmw")]
+[node name="HitBox" parent="." instance=ExtResource("2_odqmw")]
+position = Vector2(0, -27)
 monitorable = true
-receiver = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 10)
@@ -59,6 +71,9 @@ shape = SubResource("CapsuleShape2D_kcltj")
 one_way_collision_margin = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_3isd4")
 }
+
+[connection signal="hit" from="HitBox" to="." method="_on_hit"]

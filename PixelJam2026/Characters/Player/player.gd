@@ -21,10 +21,10 @@ var is_attacking = false
 var have_sword = true
 var have_gun = false
 
-func hit(damage: int):
+func _on_hit(damage: int):
 	hp -= damage
 
-func knock(dir: Vector2):
+func _on_knock(dir: Vector2):
 	knockback_time = 1
 	knockback = dir
 

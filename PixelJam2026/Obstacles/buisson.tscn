@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://chh6iscc43i22"]
+
+[ext_resource type="Texture2D" uid="uid://iadnokphquan" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/buisson.png" id="1_42w7q"]
+[ext_resource type="Script" path="res://PixelJam2026/Obstacles/buisson.gd" id="1_ohmc2"]
+[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="3_pbgig"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0oyt"]
+radius = 21.0
+height = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bct0"]
+radius = 42.4264
+
+[sub_resource type="Animation" id="Animation_2m77m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buisson:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -45)]
+}
+
+[sub_resource type="Animation" id="Animation_f21ly"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buisson:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667, 0.6),
+"transitions": PackedFloat32Array(1, 0.2, 3, 0.2, 1),
+"update": 0,
+"values": [Vector2(0, -45), Vector2(5, -40), Vector2(0, -50), Vector2(-5, -40), Vector2(0, -45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rj5f"]
+_data = {
+"RESET": SubResource("Animation_2m77m"),
+"hit": SubResource("Animation_f21ly")
+}
+
+[node name="Buisson" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ohmc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k0oyt")
+
+[node name="Buisson" type="Sprite2D" parent="."]
+position = Vector2(0, -45)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_42w7q")
+
+[node name="HitBox" parent="." instance=ExtResource("3_pbgig")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_1bct0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8rj5f")
+}
+
+[connection signal="hit" from="HitBox" to="." method="_on_hit"]
