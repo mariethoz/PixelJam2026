@@ -24,10 +24,3 @@ func get_player_position():
 		return player.get_global_position()
 	else:
 		return Vector2.ZERO
-
-func spawn_monster(position: Vector2):
-	var strenghtd = rng.randi_range(STRENGHT_MIN, STRENGHT_MAX)
-	var speed = rng.randi_range(SPEED_MIN,SPEED_MAX)
-	var hp = rng.randi_range(HP_MIN,HP_MAX)
-	#var monster = ...
-	#world.add_monster(monster)

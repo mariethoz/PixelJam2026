@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0lm0w7i3nidu"]
+[gd_scene load_steps=13 format=3 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbgvlad2cefc1" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
 [ext_resource type="PackedScene" uid="uid://b0duudcq6eqnc" path="res://PixelJam2026/Items/spawn_obstacles.tscn" id="8_2iemn"]
 [ext_resource type="Script" path="res://PixelJam2026/Items/obstacl_proba.gd" id="9_68na3"]
+[ext_resource type="PackedScene" uid="uid://n1jklne2iiku" path="res://PixelJam2026/UI/UI.tscn" id="10_wd72q"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7lubq"]
 vertices = PackedVector2Array(1688.51, -213.172, 1711.87, 217.102, 1279.69, 1170.67, -767.703, 1069.49, -728.289, -231.008, 641.82, -232.992)
@@ -53,3 +54,5 @@ position = Vector2(-388, 210)
 parent = NodePath("..")
 radius = 500.0
 obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev")])
+
+[node name="Ui" parent="." instance=ExtResource("10_wd72q")]
