@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-@export_file() var game_scene: String
+@export_file() var game_scene: String = "res://PixelJam2026/Map/Level0.tscn"
 
 @onready var start = %Start
 @onready var exit = %Exit

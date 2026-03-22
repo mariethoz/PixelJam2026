@@ -1,13 +1,169 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbgvlad2cefc1"]
+[gd_scene load_steps=20 format=3 uid="uid://cbgvlad2cefc1"]
 
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Helper/spawn_point.gd" id="1_eg72h"]
 [ext_resource type="PackedScene" uid="uid://dfktiyhchniuq" path="res://PixelJam2026/Characters/Ennemies/en1/en1.tscn" id="2_ot4xd"]
+[ext_resource type="Texture2D" uid="uid://cm7jotourdlow" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0000.png" id="3_c3vvm"]
+[ext_resource type="Texture2D" uid="uid://bn27sjpif78ow" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0002.png" id="4_w16hn"]
+[ext_resource type="Texture2D" uid="uid://b4x0kkmgtys4m" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0003.png" id="5_ecws0"]
+[ext_resource type="Texture2D" uid="uid://cxraac621vywa" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0004.png" id="6_hrjom"]
+[ext_resource type="Texture2D" uid="uid://bcdtdgnu7x04v" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0005.png" id="7_hywc3"]
+[ext_resource type="Texture2D" uid="uid://dqvqyyhi4f1ag" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0007.png" id="8_4062b"]
+[ext_resource type="Texture2D" uid="uid://csnnpysuk1uyo" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/1/firework_1_0008.png" id="9_y103e"]
+[ext_resource type="Texture2D" uid="uid://c3wnt4c7wul0n" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0000.png" id="10_xur3g"]
+[ext_resource type="Texture2D" uid="uid://bn53yjm24qetx" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0002.png" id="11_arxpn"]
+[ext_resource type="Texture2D" uid="uid://cbs22svq12jpo" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0003.png" id="12_f3317"]
+[ext_resource type="Texture2D" uid="uid://brojb30ytgs37" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0004.png" id="13_jypn7"]
+[ext_resource type="Texture2D" uid="uid://bbge5f0lsjqr0" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0005.png" id="14_f6pyd"]
+[ext_resource type="Texture2D" uid="uid://e6csmf03q1s5" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0007.png" id="15_nq83l"]
+[ext_resource type="Texture2D" uid="uid://r2h6ighxw0ym" path="res://PixelJam2026/Assets/Sprites/effets/feux_artifices/2/firework_2_0008.png" id="16_gjp5l"]
+
+[sub_resource type="Animation" id="Animation_aaiwd"]
+resource_name = "firework"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Left:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_c3vvm"), ExtResource("4_w16hn"), ExtResource("5_ecws0"), ExtResource("6_hrjom"), ExtResource("7_hywc3"), ExtResource("8_4062b"), ExtResource("9_y103e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Right:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_xur3g"), ExtResource("11_arxpn"), ExtResource("12_f3317"), ExtResource("13_jypn7"), ExtResource("14_f6pyd"), ExtResource("15_nq83l"), ExtResource("16_gjp5l")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Right:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Left:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jbncw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Left:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c3vvm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Right:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_xur3g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Right:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Left:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovghq"]
+_data = {
+"RESET": SubResource("Animation_jbncw"),
+"firework": SubResource("Animation_aaiwd")
+}
 
 [node name="SpawnPoint" type="Marker2D"]
 script = ExtResource("1_eg72h")
 enemy_scene = ExtResource("2_ot4xd")
 radius = 200.0
+wait_time = null
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
+
+[node name="FireWork" type="CanvasLayer" parent="."]
+
+[node name="AnimationTree" type="AnimationPlayer" parent="FireWork"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ovghq")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FireWork"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Left" type="TextureRect" parent="FireWork/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_c3vvm")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="FireWork/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="TextureRect" parent="FireWork/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_xur3g")
