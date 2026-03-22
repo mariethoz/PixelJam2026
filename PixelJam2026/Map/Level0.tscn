@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0lm0w7i3nidu"]
+[gd_scene load_steps=19 format=3 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://chh6iscc43i22" path="res://PixelJam2026/Obstacles/buisson.tscn" id="5_ahsqg"]
 [ext_resource type="PackedScene" uid="uid://bncxfwle1ulsu" path="res://PixelJam2026/Obstacles/caillou.tscn" id="6_tcxew"]
 [ext_resource type="PackedScene" uid="uid://cgpyh218o7ihy" path="res://PixelJam2026/Obstacles/rocher.tscn" id="7_2dde8"]
-[ext_resource type="PackedScene" uid="uid://cbgvlad2cefc1" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
+[ext_resource type="PackedScene" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
 [ext_resource type="PackedScene" uid="uid://b0duudcq6eqnc" path="res://PixelJam2026/Items/spawn_obstacles.tscn" id="8_2iemn"]
 [ext_resource type="Script" path="res://PixelJam2026/Items/obstacl_proba.gd" id="9_68na3"]
+[ext_resource type="PackedScene" uid="uid://cmeqv8icb0cb3" path="res://PixelJam2026/Items/bones.tscn" id="10_ic7uk"]
+[ext_resource type="PackedScene" uid="uid://dcj7efm445ps7" path="res://PixelJam2026/Items/crate.tscn" id="11_1blp3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7lubq"]
 vertices = PackedVector2Array(1688.51, -213.172, 1711.87, 217.102, 1279.69, 1170.67, -767.703, 1069.49, -728.289, -231.008, 641.82, -232.992)
@@ -17,10 +19,36 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-738, -241, -778, 1079,
 
 [sub_resource type="Resource" id="Resource_gv5ev"]
 script = ExtResource("9_68na3")
-probability = 75.0
+probability = 60.0
 obstacle = ExtResource("4_ivyyo")
 
+[sub_resource type="Resource" id="Resource_dihot"]
+script = ExtResource("9_68na3")
+probability = 30.0
+obstacle = ExtResource("7_2dde8")
+
+[sub_resource type="Resource" id="Resource_m0gmu"]
+script = ExtResource("9_68na3")
+probability = 60.0
+obstacle = ExtResource("6_tcxew")
+
+[sub_resource type="Resource" id="Resource_kqctq"]
+script = ExtResource("9_68na3")
+probability = 70.0
+obstacle = ExtResource("5_ahsqg")
+
+[sub_resource type="Resource" id="Resource_5ghs5"]
+script = ExtResource("9_68na3")
+probability = 40.0
+obstacle = ExtResource("10_ic7uk")
+
+[sub_resource type="Resource" id="Resource_yrmt1"]
+script = ExtResource("9_68na3")
+probability = 40.0
+obstacle = ExtResource("11_1blp3")
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("player")]
+position = Vector2(-1, 0)
 script = ExtResource("1_5e7dl")
 player = NodePath("Player")
 
@@ -29,16 +57,17 @@ z_index = 1
 position = Vector2(269, 300)
 
 [node name="Arbre" parent="." instance=ExtResource("4_ivyyo")]
-position = Vector2(132, 284)
+position = Vector2(37, 214)
 
 [node name="Caillou" parent="." instance=ExtResource("6_tcxew")]
 position = Vector2(233, 395)
 
 [node name="Rocher" parent="." instance=ExtResource("7_2dde8")]
 position = Vector2(432, 209)
+item = null
 
 [node name="Buisson" parent="." instance=ExtResource("5_ahsqg")]
-position = Vector2(434, 66)
+position = Vector2(512, -3)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7lubq")
@@ -52,4 +81,10 @@ parent = NodePath("..")
 position = Vector2(-388, 210)
 parent = NodePath("..")
 radius = 500.0
-obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev")])
+obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev"), SubResource("Resource_dihot"), SubResource("Resource_m0gmu"), SubResource("Resource_kqctq"), SubResource("Resource_5ghs5"), SubResource("Resource_yrmt1")])
+
+[node name="Bones" parent="." instance=ExtResource("10_ic7uk")]
+position = Vector2(572, 513)
+
+[node name="Crate" parent="." instance=ExtResource("11_1blp3")]
+position = Vector2(-60, 462)

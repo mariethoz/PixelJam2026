@@ -10,9 +10,9 @@ signal obstacle_destroied
 func _ready():
 	self.visible = true
 	
-
 func _on_hit(damage: int):
 	print("Arbre")
+	print(item)
 	if self.visible:
 		hp -= damage
 		anim_player.play("hit")

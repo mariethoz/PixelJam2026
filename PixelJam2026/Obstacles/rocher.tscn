@@ -1,8 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgpyh218o7ihy"]
+[gd_scene load_steps=13 format=3 uid="uid://cgpyh218o7ihy"]
 
 [ext_resource type="Texture2D" uid="uid://b828j2wuorqhr" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/rocher.png" id="1_4akv1"]
 [ext_resource type="Script" path="res://PixelJam2026/Obstacles/rocher.gd" id="1_tsv0l"]
+[ext_resource type="Script" path="res://PixelJam2026/Items/item_data.gd" id="2_umkgd"]
 [ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="3_neyh0"]
+[ext_resource type="Texture2D" uid="uid://bal2f346113ft" path="res://PixelJam2026/Assets/Sprites/objets/améliorations/orbe_level_up/orbe_level_up_0001.png" id="3_tw0t6"]
+[ext_resource type="PackedScene" uid="uid://cui8fc60h1o5j" path="res://PixelJam2026/Items/spell.tscn" id="4_33qm4"]
+
+[sub_resource type="Resource" id="Resource_pvyjw"]
+script = ExtResource("2_umkgd")
+texture = ExtResource("3_tw0t6")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld7ff"]
 radius = 25.0
@@ -53,6 +60,7 @@ _data = {
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_tsv0l")
+item = SubResource("Resource_pvyjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -75,5 +83,9 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_fqgcd")
 }
+
+[node name="Spell" parent="." instance=ExtResource("4_33qm4")]
+position = Vector2(-7, -72)
+scale = Vector2(0.8, 0.8)
 
 [connection signal="hit" from="HitBox" to="." method="_on_hit"]
