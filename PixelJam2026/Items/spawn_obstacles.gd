@@ -33,6 +33,7 @@ func _on_timer_timeout():
 		var obstacle = ob.obstacle.instantiate()
 		nb_obstacles += 1
 		obstacle.position = position + get_random_point_in_circle()
+		print(obstacle.name)
 		obstacle.obstacle_destroied.connect(_on_obstacle_destroied)
 		parent.add_child(obstacle)
 

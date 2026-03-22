@@ -166,7 +166,7 @@ position = Vector2(-1806, -978)
 position = Vector2(-1825, -866)
 
 [node name="WallProfil4" parent="Walls" instance=ExtResource("12_0lfhj")]
-position = Vector2(-1843, -759)
+position = Vector2(-1843, -760)
 
 [node name="WallFace2" parent="Walls" instance=ExtResource("13_l4l0j")]
 position = Vector2(-1688, -684)
