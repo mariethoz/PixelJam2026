@@ -164,4 +164,3 @@ visible = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_4cwpn")
 volume_db = -2.0
-bus = &"Music"

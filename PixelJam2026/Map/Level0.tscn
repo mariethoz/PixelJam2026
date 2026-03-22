@@ -1,25 +1,53 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0lm0w7i3nidu"]
+[gd_scene load_steps=21 format=3 uid="uid://b0lm0w7i3nidu"]
 
 [ext_resource type="Script" path="res://PixelJam2026/test.gd" id="1_5e7dl"]
 [ext_resource type="PackedScene" uid="uid://rwbt4aqt1pqf" path="res://PixelJam2026/Characters/Player/player.tscn" id="2_dnj1r"]
-[ext_resource type="PackedScene" uid="uid://dqgkjats5qag0" path="res://PixelJam2026/Obstacles/arbre.tscn" id="4_ivyyo"]
-[ext_resource type="PackedScene" uid="uid://chh6iscc43i22" path="res://PixelJam2026/Obstacles/buisson.tscn" id="5_ahsqg"]
-[ext_resource type="PackedScene" uid="uid://bncxfwle1ulsu" path="res://PixelJam2026/Obstacles/caillou.tscn" id="6_tcxew"]
-[ext_resource type="PackedScene" uid="uid://cgpyh218o7ihy" path="res://PixelJam2026/Obstacles/rocher.tscn" id="7_2dde8"]
+[ext_resource type="PackedScene" uid="uid://dqgkjats5qag0" path="res://PixelJam2026/Obstacles/Decor/arbre.tscn" id="4_ivyyo"]
+[ext_resource type="Texture2D" uid="uid://51yoft145lsq" path="res://PixelJam2026/Assets/Tiles/MAP/MAP.jpg" id="4_mr0tf"]
+[ext_resource type="PackedScene" uid="uid://chh6iscc43i22" path="res://PixelJam2026/Obstacles/Decor/buisson.tscn" id="5_ahsqg"]
+[ext_resource type="PackedScene" uid="uid://bncxfwle1ulsu" path="res://PixelJam2026/Obstacles/Decor/caillou.tscn" id="6_tcxew"]
+[ext_resource type="PackedScene" uid="uid://cgpyh218o7ihy" path="res://PixelJam2026/Obstacles/Decor/rocher.tscn" id="7_2dde8"]
 [ext_resource type="PackedScene" uid="uid://cbgvlad2cefc1" path="res://PixelJam2026/Characters/Helper/spawn_point.tscn" id="7_k7beh"]
 [ext_resource type="PackedScene" uid="uid://b0duudcq6eqnc" path="res://PixelJam2026/Items/spawn_obstacles.tscn" id="8_2iemn"]
 [ext_resource type="Script" path="res://PixelJam2026/Items/obstacl_proba.gd" id="9_68na3"]
 [ext_resource type="PackedScene" uid="uid://n1jklne2iiku" path="res://PixelJam2026/UI/UI.tscn" id="10_wd72q"]
+[ext_resource type="PackedScene" uid="uid://dctne4bifsqls" path="res://PixelJam2026/Obstacles/Wall/wall_profil.tscn" id="12_0lfhj"]
+[ext_resource type="PackedScene" uid="uid://cbwr6ratl6sc4" path="res://PixelJam2026/Obstacles/Wall/wall_face.tscn" id="13_l4l0j"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7lubq"]
-vertices = PackedVector2Array(1688.51, -213.172, 1711.87, 217.102, 1279.69, 1170.67, -767.703, 1069.49, -728.289, -231.008, 641.82, -232.992)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-738, -241, -778, 1079, 1286, 1181, 1722, 219, 1698, -223, 642, -243)])
-
-[sub_resource type="Resource" id="Resource_gv5ev"]
+[sub_resource type="Resource" id="Resource_f7j30"]
 script = ExtResource("9_68na3")
 probability = 75.0
+obstacle = ExtResource("5_ahsqg")
+
+[sub_resource type="Resource" id="Resource_nsw0y"]
+script = ExtResource("9_68na3")
+probability = 80.0
 obstacle = ExtResource("4_ivyyo")
+
+[sub_resource type="Resource" id="Resource_l2xxm"]
+script = ExtResource("9_68na3")
+probability = 75.0
+obstacle = ExtResource("6_tcxew")
+
+[sub_resource type="Resource" id="Resource_hpj6j"]
+script = ExtResource("9_68na3")
+probability = 50.0
+obstacle = ExtResource("7_2dde8")
+
+[sub_resource type="Resource" id="Resource_mlety"]
+script = ExtResource("9_68na3")
+probability = 75.0
+obstacle = ExtResource("6_tcxew")
+
+[sub_resource type="Resource" id="Resource_sd00i"]
+script = ExtResource("9_68na3")
+probability = 20.0
+obstacle = ExtResource("5_ahsqg")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_swtcj"]
+vertices = PackedVector2Array(1998.98, 1992.93, -1991, 1969.05, -1991, -1984.01, 1993.01, -1989.98)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2003, -2000, -2001, -1994, -2001, 1979, 2009, 2003)])
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_5e7dl")
@@ -29,30 +57,126 @@ player = NodePath("Player")
 z_index = 1
 position = Vector2(269, 300)
 
-[node name="Arbre" parent="." instance=ExtResource("4_ivyyo")]
-position = Vector2(132, 284)
-
-[node name="Caillou" parent="." instance=ExtResource("6_tcxew")]
-position = Vector2(233, 395)
-
-[node name="Rocher" parent="." instance=ExtResource("7_2dde8")]
-position = Vector2(432, 209)
-
-[node name="Buisson" parent="." instance=ExtResource("5_ahsqg")]
-position = Vector2(434, 66)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_7lubq")
-navigation_layers = 7
-
-[node name="SpawnPoint" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
-position = Vector2(1062, 526)
-parent = NodePath("..")
-
-[node name="SpawnObstacles" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("8_2iemn")]
-position = Vector2(-388, 210)
-parent = NodePath("..")
-radius = 500.0
-obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_gv5ev")])
-
 [node name="Ui" parent="." instance=ExtResource("10_wd72q")]
+
+[node name="Tree" type="Node2D" parent="."]
+position = Vector2(-2085, 2408)
+
+[node name="Arbre" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(3668, -4007)
+
+[node name="Arbre2" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(1499, -3556)
+
+[node name="Arbre3" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(2490, -3022)
+
+[node name="Arbre4" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(3277, -1921)
+
+[node name="Arbre5" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(3176, -3122)
+
+[node name="Arbre6" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(1540, -1759)
+
+[node name="Arbre7" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(808, -2577)
+
+[node name="Arbre8" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(2595, -1643)
+
+[node name="Arbre9" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(1583, -2898)
+
+[node name="Arbre10" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(2299, -3547)
+
+[node name="Arbre11" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(3142, -2613)
+
+[node name="Arbre12" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(2702, -4023)
+
+[node name="Arbre13" parent="Tree" instance=ExtResource("4_ivyyo")]
+position = Vector2(3798, -3322)
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="Forest" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("8_2iemn")]
+position = Vector2(844, -870)
+max_obstacles = 20
+parent = NodePath("../..")
+radius = 500.0
+obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_f7j30"), SubResource("Resource_nsw0y"), SubResource("Resource_l2xxm")])
+
+[node name="Rocher" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("8_2iemn")]
+parent = NodePath("../..")
+obstacles = Array[ExtResource("9_68na3")]([SubResource("Resource_hpj6j"), SubResource("Resource_mlety"), SubResource("Resource_sd00i")])
+
+[node name="Enemy1" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
+position = Vector2(1774, -1756)
+parent = NodePath("../..")
+
+[node name="Enemy2" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
+position = Vector2(-1768, 1780)
+parent = NodePath("../..")
+
+[node name="Enemy3" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
+position = Vector2(-1732, -1786)
+parent = NodePath("../..")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navigation"]
+navigation_polygon = SubResource("NavigationPolygon_swtcj")
+
+[node name="Border" type="StaticBody2D" parent="Navigation"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Navigation/Border"]
+polygon = PackedVector2Array(-1999, -2004, 2021, -2018, 2021, 1997, -2008, 2009, -1999, -1999, -2319, -2276, -2251, 2298, 2212, 2221, 2206, -2324, -2265, -2324)
+
+[node name="TextureRect" type="TextureRect" parent="Navigation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2000.0
+offset_top = -2000.0
+offset_right = 8000.0
+offset_bottom = 8000.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_mr0tf")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallProfil" parent="Walls" instance=ExtResource("12_0lfhj")]
+position = Vector2(-1788, -1088)
+
+[node name="WallFace" parent="Walls" instance=ExtResource("13_l4l0j")]
+position = Vector2(-1688, -684)
+
+[node name="WallProfil2" parent="Walls" instance=ExtResource("12_0lfhj")]
+position = Vector2(-1806, -978)
+
+[node name="WallProfil3" parent="Walls" instance=ExtResource("12_0lfhj")]
+position = Vector2(-1825, -866)
+
+[node name="WallProfil4" parent="Walls" instance=ExtResource("12_0lfhj")]
+position = Vector2(-1843, -759)
+
+[node name="WallFace2" parent="Walls" instance=ExtResource("13_l4l0j")]
+position = Vector2(-1688, -684)
+
+[node name="HouseTop" type="Node2D" parent="Walls"]
+
+[node name="HouseTopLeft" type="Node2D" parent="Walls"]
+
+[node name="HouseBottomLeft" type="Node2D" parent="Walls"]
+
+[node name="HouseBottom" type="Node2D" parent="Walls"]
+
+[node name="HouseBottomRight" type="Node2D" parent="Walls"]

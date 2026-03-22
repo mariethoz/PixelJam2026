@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbwr6ratl6sc4"]
+
+[ext_resource type="Texture2D" uid="uid://c5wtjtypdllat" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/mur_face.png" id="1_yjrnk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it81i"]
+size = Vector2(303, 38)
+
+[node name="WallFace" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 9)
+shape = SubResource("RectangleShape2D_it81i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -60)
+texture = ExtResource("1_yjrnk")

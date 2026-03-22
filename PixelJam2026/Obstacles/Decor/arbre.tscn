@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqgkjats5qag0"]
+
+[ext_resource type="Texture2D" uid="uid://bjvlykpp2r1ri" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/arbre.png" id="1_68dj0"]
+[ext_resource type="Script" path="res://PixelJam2026/Obstacles/Decor/arbre.gd" id="1_oqwyu"]
+[ext_resource type="Script" path="res://PixelJam2026/Items/item_data.gd" id="2_f36hc"]
+[ext_resource type="Texture2D" uid="uid://xmqo2hsnrb6f" path="res://PixelJam2026/Assets/Sprites/objets/drops/baton.png" id="3_0imkx"]
+[ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="3_u5ccg"]
+
+[sub_resource type="Resource" id="Resource_ox257"]
+script = ExtResource("2_f36hc")
+texture = ExtResource("3_0imkx")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apl2p"]
+radius = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_catj2"]
+radius = 25.0
+height = 202.0
+
+[sub_resource type="Animation" id="Animation_soc5s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arbre:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ntyp"]
+resource_name = "hit"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arbre:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuuxd"]
+_data = {
+"RESET": SubResource("Animation_soc5s"),
+"hit": SubResource("Animation_8ntyp")
+}
+
+[node name="Arbre" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_oqwyu")
+item = SubResource("Resource_ox257")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_apl2p")
+
+[node name="Arbre" type="Sprite2D" parent="."]
+position = Vector2(0, -110)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_68dj0")
+
+[node name="HitBox" parent="." instance=ExtResource("3_u5ccg")]
+position = Vector2(0, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -45)
+shape = SubResource("CapsuleShape2D_catj2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_vuuxd")
+}
+
+[connection signal="hit" from="HitBox" to="." method="_on_hit"]

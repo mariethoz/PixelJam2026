@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=3 uid="uid://bpccpne3mwx3u"]
+
+[ext_resource type="Script" path="res://PixelJam2026/UI/title.gd" id="1_ml466"]
+[ext_resource type="Texture2D" uid="uid://c2odtj3njwgsp" path="res://PixelJam2026/Assets/Misc/menus_cinematiques/menu.png" id="1_nv6qo"]
+
+[sub_resource type="FontFile" id="FontFile_xpsv5"]
+cache/0/92/0/ascent = 0.0
+cache/0/92/0/descent = 0.0
+cache/0/92/0/underline_position = 0.0
+cache/0/92/0/underline_thickness = 0.0
+cache/0/92/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vmslr"]
+font = SubResource("FontFile_xpsv5")
+font_size = 92
+outline_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kffxg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eykk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ddr1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqw0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi3i8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nil1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0k53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjfdx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxupu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83vqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2f6c"]
+bg_color = Color(0.968627, 0.945098, 0.623529, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Title" type="CanvasLayer"]
+script = ExtResource("1_ml466")
+game_scene = "res://PixelJam2026/Map/Level0.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nv6qo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+text = "Title"
+label_settings = SubResource("LabelSettings_vmslr")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 68
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kffxg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_eykk2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5ddr1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rqw0h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi3i8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nil1r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d0k53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yjfdx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uxupu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_83vqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2f6c")
+text = "Start"
+
+[node name="Exit" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 68
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kffxg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_eykk2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5ddr1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rqw0h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xi3i8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nil1r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d0k53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yjfdx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uxupu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_83vqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2f6c")
+text = "Exit
+"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0

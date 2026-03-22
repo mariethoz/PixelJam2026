@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dctne4bifsqls"]
+
+[ext_resource type="Texture2D" uid="uid://ctb8twalwma5e" path="res://PixelJam2026/Assets/Sprites/decor/obstacles/mur_profil.png" id="1_un43o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqtyb"]
+size = Vector2(160, 50)
+
+[node name="WallProfil" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.4748
+shape = SubResource("RectangleShape2D_xqtyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37, -45)
+texture = ExtResource("1_un43o")
