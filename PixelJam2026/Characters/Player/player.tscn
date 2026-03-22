@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://rwbt4aqt1pqf"]
+[gd_scene load_steps=175 format=3 uid="uid://rwbt4aqt1pqf"]
 
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Player/player.gd" id="1_2g8rw"]
 [ext_resource type="Texture2D" uid="uid://c3dg78wra71v6" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0000.png" id="2_jje0e"]
@@ -26,25 +26,68 @@
 [ext_resource type="Texture2D" uid="uid://crinhfeqgijlc" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_D.png" id="15_jkmit"]
 [ext_resource type="Texture2D" uid="uid://b42shvgll1ff3" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0006.png" id="15_y2h6c"]
 [ext_resource type="Texture2D" uid="uid://3jai5l4ryl0l" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_D.png" id="16_s3nxn"]
+[ext_resource type="Texture2D" uid="uid://b0luqwb36ovdt" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_E.png" id="17_7cpja"]
+[ext_resource type="Texture2D" uid="uid://c6uhh3rt5np1v" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_E.png" id="18_bt8wq"]
+[ext_resource type="Texture2D" uid="uid://cccma5f83nbtx" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_F.png" id="19_fckc8"]
 [ext_resource type="Texture2D" uid="uid://cyyg5hcgdnum7" path="res://PixelJam2026/Assets/Sprites/personnage/main/pistolet/pistolet.png" id="20_gyfor"]
+[ext_resource type="Texture2D" uid="uid://uo3pl0hq5rex" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_F.png" id="20_sql1g"]
+[ext_resource type="Texture2D" uid="uid://d3gtxxt0uex5v" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_G.png" id="21_sau00"]
 [ext_resource type="Texture2D" uid="uid://bat2ph4e4w4cc" path="res://PixelJam2026/Assets/Sprites/personnage/main/pistolet/attaque/pistolet_tir_0000.png" id="21_vryu7"]
 [ext_resource type="Texture2D" uid="uid://bb7w5hines5cp" path="res://PixelJam2026/Assets/Sprites/personnage/main/pistolet/attaque/pistolet_tir_0001.png" id="22_osdgx"]
+[ext_resource type="Texture2D" uid="uid://co8hvue5tjgfa" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_G.png" id="22_xysxf"]
 [ext_resource type="Texture2D" uid="uid://b654u4ct61i50" path="res://PixelJam2026/Assets/Sprites/personnage/main/pistolet/attaque/pistolet_tir_0002.png" id="23_3k1c8"]
+[ext_resource type="Texture2D" uid="uid://bvsc7di25kmhd" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_H.png" id="23_dghi8"]
 [ext_resource type="Texture2D" uid="uid://bh7sgagt8rxrm" path="res://PixelJam2026/Assets/Sprites/personnage/main/pistolet/attaque/pistolet_tir_0003.png" id="24_i85u3"]
+[ext_resource type="Texture2D" uid="uid://dsqcaeggcylex" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_H.png" id="24_xywpk"]
+[ext_resource type="Texture2D" uid="uid://c3bdasri4ri2a" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_I.png" id="25_shnv5"]
 [ext_resource type="Texture2D" uid="uid://50b2bcms12xx" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/clavier_magique.png" id="26_75yyk"]
 [ext_resource type="PackedScene" uid="uid://dvityagbuudxk" path="res://PixelJam2026/Characters/Player/bullet.tscn" id="26_mng6n"]
+[ext_resource type="Texture2D" uid="uid://0go2b3btm88p" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_I.png" id="26_uuxui"]
 [ext_resource type="Texture2D" uid="uid://c6lbei4xqj8o" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0000.png" id="27_gl5x7"]
+[ext_resource type="Texture2D" uid="uid://cupxscm5ofw7e" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_J.png" id="27_ofu6x"]
+[ext_resource type="Texture2D" uid="uid://oi5tf20k7osy" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_J.png" id="28_4ydrx"]
 [ext_resource type="Texture2D" uid="uid://cb7jilmsixx5m" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0001.png" id="28_x2kdw"]
 [ext_resource type="Texture2D" uid="uid://bx8exj1lkadtd" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0002.png" id="29_1mv1t"]
+[ext_resource type="Texture2D" uid="uid://brts51j2fx22p" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_K.png" id="29_rxh73"]
 [ext_resource type="Texture2D" uid="uid://d2y217nxocqyf" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0003.png" id="30_6iuxd"]
+[ext_resource type="Texture2D" uid="uid://xidqhp5mkddf" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_K.png" id="30_654g5"]
 [ext_resource type="Texture2D" uid="uid://d14j8n5ghloiw" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0004.png" id="31_jnoqr"]
+[ext_resource type="Texture2D" uid="uid://duta5c0clrd4y" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_L.png" id="31_wkkcr"]
+[ext_resource type="Texture2D" uid="uid://b435latmsxbnk" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_L.png" id="32_5v1o8"]
 [ext_resource type="Texture2D" uid="uid://dep1hca4tf813" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0005.png" id="32_qp870"]
 [ext_resource type="Texture2D" uid="uid://3eaj7bk7c4yo" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0006.png" id="33_hd2vj"]
+[ext_resource type="Texture2D" uid="uid://cpv2kyygxe45g" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_M.png" id="33_q3lat"]
 [ext_resource type="Texture2D" uid="uid://c7kknmvsrufe7" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0007.png" id="34_apc3t"]
+[ext_resource type="Texture2D" uid="uid://bbwbdvx58h5ix" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_M.png" id="34_cknvm"]
 [ext_resource type="Texture2D" uid="uid://cjblcxh8bvyst" path="res://PixelJam2026/Assets/Sprites/personnage/main/claviermagique/attaque/clavier_attaque_0008.png" id="35_kucsh"]
+[ext_resource type="Texture2D" uid="uid://caf5tfs8hw3si" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_N.png" id="35_sgyvb"]
+[ext_resource type="Texture2D" uid="uid://cjwnfjr0cp1ht" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_N.png" id="36_c1yim"]
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Player/key_pairs.gd" id="37_suln5"]
+[ext_resource type="Texture2D" uid="uid://cfepepb8r13hh" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_O.png" id="37_swgol"]
 [ext_resource type="Texture2D" uid="uid://by7honslmlbss" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_A.png" id="38_2250d"]
+[ext_resource type="Texture2D" uid="uid://bk2q7y8q267ff" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_O.png" id="38_jqngs"]
 [ext_resource type="Texture2D" uid="uid://d3p3x55e4s756" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_A.png" id="39_77qg2"]
+[ext_resource type="Texture2D" uid="uid://eyik42bra11" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_P.png" id="39_xuqet"]
+[ext_resource type="Texture2D" uid="uid://de7507crws3wy" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_P.png" id="40_h3b11"]
+[ext_resource type="Texture2D" uid="uid://beexk7oft7fto" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Q.png" id="41_4bxyq"]
+[ext_resource type="Texture2D" uid="uid://n867rd3dl2qx" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Q.png" id="42_rsqvr"]
+[ext_resource type="Texture2D" uid="uid://5jwq28pdau3l" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_R.png" id="43_c207j"]
+[ext_resource type="Texture2D" uid="uid://c6mtolufhmbau" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_R.png" id="44_u1qnr"]
+[ext_resource type="Texture2D" uid="uid://b0p3rhdf1chfk" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_S.png" id="45_b8a6n"]
+[ext_resource type="Texture2D" uid="uid://b7pal4uwf1g37" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_S.png" id="46_teta6"]
+[ext_resource type="Texture2D" uid="uid://btmfnyu63wgd3" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_T.png" id="47_8rvcn"]
+[ext_resource type="Texture2D" uid="uid://bfgj28k560b71" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_T.png" id="48_eotkq"]
+[ext_resource type="Texture2D" uid="uid://cfquyq3g55b4c" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_U.png" id="49_64huc"]
+[ext_resource type="Texture2D" uid="uid://dvm2irg2yfhh8" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_U.png" id="50_nph5y"]
+[ext_resource type="Texture2D" uid="uid://c7jlju1vch57s" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_V.png" id="51_cd55n"]
+[ext_resource type="Texture2D" uid="uid://b2o8gtf6riap2" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_V.png" id="52_pqndn"]
+[ext_resource type="Texture2D" uid="uid://sxx4cpq3ix60" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_W.png" id="53_4uuay"]
+[ext_resource type="Texture2D" uid="uid://dpm3yrmiypyp6" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_W.png" id="54_npn4h"]
+[ext_resource type="Texture2D" uid="uid://k0kc8kr0bfk3" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_X.png" id="55_lnlea"]
+[ext_resource type="Texture2D" uid="uid://87v24jp5v8ys" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Y.png" id="56_dx4yh"]
+[ext_resource type="Texture2D" uid="uid://b0ixmnjivxsgc" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Y.png" id="57_cdx5o"]
+[ext_resource type="Texture2D" uid="uid://dwok422sviptt" path="res://PixelJam2026/Assets/Sprites/icones/keys/NEUTRE/key_Z.png" id="58_5bquk"]
+[ext_resource type="Texture2D" uid="uid://bpn2gp08s1jxw" path="res://PixelJam2026/Assets/Sprites/icones/keys/PRESS/keypress_Z.png" id="59_4yewv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5v71"]
 radius = 25.0
@@ -77,6 +120,138 @@ script = ExtResource("37_suln5")
 keycode = "D"
 texture_neutre = ExtResource("15_jkmit")
 texture_pressed = ExtResource("16_s3nxn")
+
+[sub_resource type="Resource" id="Resource_cex57"]
+script = ExtResource("37_suln5")
+keycode = "E"
+texture_neutre = ExtResource("17_7cpja")
+texture_pressed = ExtResource("18_bt8wq")
+
+[sub_resource type="Resource" id="Resource_vmqbv"]
+script = ExtResource("37_suln5")
+keycode = "F"
+texture_neutre = ExtResource("19_fckc8")
+texture_pressed = ExtResource("20_sql1g")
+
+[sub_resource type="Resource" id="Resource_2y6jl"]
+script = ExtResource("37_suln5")
+keycode = "G"
+texture_neutre = ExtResource("21_sau00")
+texture_pressed = ExtResource("22_xysxf")
+
+[sub_resource type="Resource" id="Resource_cpsek"]
+script = ExtResource("37_suln5")
+keycode = "H"
+texture_neutre = ExtResource("23_dghi8")
+texture_pressed = ExtResource("24_xywpk")
+
+[sub_resource type="Resource" id="Resource_jjs7a"]
+script = ExtResource("37_suln5")
+keycode = "I"
+texture_neutre = ExtResource("25_shnv5")
+texture_pressed = ExtResource("26_uuxui")
+
+[sub_resource type="Resource" id="Resource_ypmkt"]
+script = ExtResource("37_suln5")
+keycode = "J"
+texture_neutre = ExtResource("27_ofu6x")
+texture_pressed = ExtResource("28_4ydrx")
+
+[sub_resource type="Resource" id="Resource_c8mqo"]
+script = ExtResource("37_suln5")
+keycode = "K"
+texture_neutre = ExtResource("29_rxh73")
+texture_pressed = ExtResource("30_654g5")
+
+[sub_resource type="Resource" id="Resource_uxybv"]
+script = ExtResource("37_suln5")
+keycode = "L"
+texture_neutre = ExtResource("31_wkkcr")
+texture_pressed = ExtResource("32_5v1o8")
+
+[sub_resource type="Resource" id="Resource_r5uix"]
+script = ExtResource("37_suln5")
+keycode = "M"
+texture_neutre = ExtResource("33_q3lat")
+texture_pressed = ExtResource("34_cknvm")
+
+[sub_resource type="Resource" id="Resource_4hoat"]
+script = ExtResource("37_suln5")
+keycode = "N"
+texture_neutre = ExtResource("35_sgyvb")
+texture_pressed = ExtResource("36_c1yim")
+
+[sub_resource type="Resource" id="Resource_g04jm"]
+script = ExtResource("37_suln5")
+keycode = "O"
+texture_neutre = ExtResource("37_swgol")
+texture_pressed = ExtResource("38_jqngs")
+
+[sub_resource type="Resource" id="Resource_wbvdl"]
+script = ExtResource("37_suln5")
+keycode = "P"
+texture_neutre = ExtResource("39_xuqet")
+texture_pressed = ExtResource("40_h3b11")
+
+[sub_resource type="Resource" id="Resource_c1aow"]
+script = ExtResource("37_suln5")
+keycode = "Q"
+texture_neutre = ExtResource("41_4bxyq")
+texture_pressed = ExtResource("42_rsqvr")
+
+[sub_resource type="Resource" id="Resource_b5gms"]
+script = ExtResource("37_suln5")
+keycode = "R"
+texture_neutre = ExtResource("43_c207j")
+texture_pressed = ExtResource("44_u1qnr")
+
+[sub_resource type="Resource" id="Resource_kia47"]
+script = ExtResource("37_suln5")
+keycode = "S"
+texture_neutre = ExtResource("45_b8a6n")
+texture_pressed = ExtResource("46_teta6")
+
+[sub_resource type="Resource" id="Resource_upq8t"]
+script = ExtResource("37_suln5")
+keycode = "T"
+texture_neutre = ExtResource("47_8rvcn")
+texture_pressed = ExtResource("48_eotkq")
+
+[sub_resource type="Resource" id="Resource_hm8lv"]
+script = ExtResource("37_suln5")
+keycode = "U"
+texture_neutre = ExtResource("49_64huc")
+texture_pressed = ExtResource("50_nph5y")
+
+[sub_resource type="Resource" id="Resource_4tmgj"]
+script = ExtResource("37_suln5")
+keycode = "V"
+texture_neutre = ExtResource("51_cd55n")
+texture_pressed = ExtResource("52_pqndn")
+
+[sub_resource type="Resource" id="Resource_yfysm"]
+script = ExtResource("37_suln5")
+keycode = "W"
+texture_neutre = ExtResource("53_4uuay")
+texture_pressed = ExtResource("54_npn4h")
+
+[sub_resource type="Resource" id="Resource_chsk7"]
+script = ExtResource("37_suln5")
+keycode = "X"
+texture_neutre = ExtResource("53_4uuay")
+texture_pressed = ExtResource("55_lnlea")
+
+[sub_resource type="Resource" id="Resource_dgtna"]
+script = ExtResource("37_suln5")
+keycode = "Y"
+texture_neutre = ExtResource("56_dx4yh")
+texture_pressed = ExtResource("57_cdx5o")
+
+[sub_resource type="Resource" id="Resource_wbjv0"]
+script = ExtResource("37_suln5")
+keycode = "Z"
+texture_neutre = ExtResource("58_5bquk")
+texture_pressed = ExtResource("59_4yewv")
 
 [sub_resource type="Animation" id="Animation_7hiw7"]
 length = 0.001
@@ -1386,7 +1561,7 @@ zoom = Vector2(2, 2)
 
 [node name="ChargeKeyboard" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("7_kajvw")]
 unique_name_in_owner = true
-key_pair = Array[ExtResource("37_suln5")]([SubResource("Resource_rdbs7"), SubResource("Resource_v2p5n"), SubResource("Resource_0o5lo"), SubResource("Resource_ajd8x")])
+key_pair = Array[ExtResource("37_suln5")]([SubResource("Resource_rdbs7"), SubResource("Resource_v2p5n"), SubResource("Resource_0o5lo"), SubResource("Resource_ajd8x"), SubResource("Resource_cex57"), SubResource("Resource_vmqbv"), SubResource("Resource_2y6jl"), SubResource("Resource_cpsek"), SubResource("Resource_jjs7a"), SubResource("Resource_ypmkt"), SubResource("Resource_c8mqo"), SubResource("Resource_uxybv"), SubResource("Resource_r5uix"), SubResource("Resource_4hoat"), SubResource("Resource_g04jm"), SubResource("Resource_wbvdl"), SubResource("Resource_c1aow"), SubResource("Resource_b5gms"), SubResource("Resource_kia47"), SubResource("Resource_upq8t"), SubResource("Resource_hm8lv"), SubResource("Resource_4tmgj"), SubResource("Resource_yfysm"), SubResource("Resource_chsk7"), SubResource("Resource_dgtna"), SubResource("Resource_wbjv0")])
 player = NodePath("../..")
 
 [node name="AnimationMotion" type="AnimationTree" parent="."]
