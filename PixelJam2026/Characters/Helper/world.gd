@@ -16,6 +16,9 @@ var player: Player = null
 func register_player(p: Player):
 	player = p
 
+func get_player() -> Player:
+	return player
+
 func get_player_position():
 	if player:
 		return player.get_global_position()

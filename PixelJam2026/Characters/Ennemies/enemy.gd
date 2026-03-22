@@ -1,5 +1,7 @@
 class_name Monster extends CharacterBody2D
 
+#const PICKUP = preload("item_pickup.tscn")
+
 @export var speed = 200
 @export var hp: int = 10
 @export var def_knockback_time: float = 2
@@ -29,8 +31,11 @@ func knock(dir: Vector2):
 func attack_break():
 	knockback_time = 1
 
-func _on_timer_timeout():
+func launch_track():
 	navigation_agent.set_target_position(World.get_player_position())
+
+func _on_timer_timeout():
+	launch_track()
 
 func update_animation():
 	if is_knock:

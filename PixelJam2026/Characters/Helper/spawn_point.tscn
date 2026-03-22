@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbgvlad2cefc1"]
+
+[ext_resource type="Script" path="res://PixelJam2026/Characters/Helper/spawn_point.gd" id="1_eg72h"]
+[ext_resource type="PackedScene" uid="uid://dfktiyhchniuq" path="res://PixelJam2026/Characters/Ennemies/en1/en1.tscn" id="2_ot4xd"]
+
+[node name="SpawnPoint" type="Marker2D" node_paths=PackedStringArray("parent")]
+position = Vector2(-648, -4)
+script = ExtResource("1_eg72h")
+enemy_scene = ExtResource("2_ot4xd")
+parent = NodePath("")
+radius = 200.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true

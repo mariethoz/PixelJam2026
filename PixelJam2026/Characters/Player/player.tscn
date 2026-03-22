@@ -1,9 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://rwbt4aqt1pqf"]
+[gd_scene load_steps=58 format=3 uid="uid://rwbt4aqt1pqf"]
 
 [ext_resource type="Script" path="res://PixelJam2026/Characters/Player/player.gd" id="1_2g8rw"]
 [ext_resource type="Texture2D" uid="uid://c3dg78wra71v6" path="res://PixelJam2026/Characters/Player/épée/attaque/attaque épée_0000.png" id="2_jje0e"]
 [ext_resource type="Texture2D" uid="uid://1hjsf4xhp4r3" path="res://PixelJam2026/Characters/Player/perso neutre.png" id="2_pu8gj"]
 [ext_resource type="PackedScene" uid="uid://c5m57vfy88pq0" path="res://PixelJam2026/Characters/Helper/hit_box.tscn" id="4_5uw3y"]
+[ext_resource type="PackedScene" uid="uid://n1jklne2iiku" path="res://PixelJam2026/UI/UI.tscn" id="5_tkw63"]
 [ext_resource type="PackedScene" uid="uid://cs0dc1fa82guw" path="res://PixelJam2026/Characters/Helper/hurt_box.tscn" id="5_y7h1g"]
 [ext_resource type="Texture2D" uid="uid://df65thwpyn7lt" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0002.png" id="6_adren"]
 [ext_resource type="Texture2D" uid="uid://bnypv0cy1esi5" path="res://PixelJam2026/Characters/Player/marche/marche perso final_0000.png" id="7_8rkxa"]
@@ -800,6 +801,9 @@ shape = SubResource("CapsuleShape2D_1682p")
 debug_color = Color(0, 0.649946, 0.120336, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Ui" parent="Camera2D" instance=ExtResource("5_tkw63")]
 
 [node name="AnimationMotion" type="AnimationTree" parent="."]
 unique_name_in_owner = true

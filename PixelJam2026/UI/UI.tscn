@@ -1,0 +1,185 @@
+[gd_scene load_steps=22 format=3 uid="uid://n1jklne2iiku"]
+
+[ext_resource type="Script" path="res://PixelJam2026/UI/ui.gd" id="1_uhq81"]
+[ext_resource type="Texture2D" uid="uid://dhjbuuoxjnys0" path="res://PixelJam2026/Assets/Misc/inventaire placeholder.png" id="1_v43x2"]
+[ext_resource type="Script" path="res://PixelJam2026/Items/inventory_data.gd" id="2_vmkap"]
+[ext_resource type="PackedScene" uid="uid://d3umrq57sewji" path="res://PixelJam2026/UI/inventory_slot.tscn" id="3_25okd"]
+[ext_resource type="Script" path="res://PixelJam2026/Items/item_data.gd" id="4_80446"]
+[ext_resource type="Texture2D" uid="uid://bf4xwvkdbq101" path="res://icon.svg" id="4_xmm4y"]
+[ext_resource type="Texture2D" uid="uid://xmqo2hsnrb6f" path="res://PixelJam2026/Assets/Sprites/objets/drops/baton.png" id="5_ux54h"]
+
+[sub_resource type="Resource" id="Resource_p3a0q"]
+script = ExtResource("4_80446")
+name = ""
+texture = ExtResource("4_xmm4y")
+
+[sub_resource type="Resource" id="Resource_7jm5a"]
+script = ExtResource("4_80446")
+name = ""
+texture = ExtResource("5_ux54h")
+
+[sub_resource type="Resource" id="Resource_t2kxc"]
+script = ExtResource("2_vmkap")
+slots = Array[ExtResource("4_80446")]([SubResource("Resource_p3a0q"), SubResource("Resource_7jm5a")])
+inventory_limit = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu1ye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcngc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1n20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_priow"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gepb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deba6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15dl6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5j6yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uob6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8egm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds46m"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_uhq81")
+init_inventory = SubResource("Resource_t2kxc")
+
+[node name="popupMenu" type="MarginContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="baseMenuScreen" type="MarginContainer" parent="popupMenu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_right = -130
+
+[node name="TextureRect" type="TextureRect" parent="popupMenu/baseMenuScreen"]
+layout_mode = 2
+texture = ExtResource("1_v43x2")
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/baseMenuScreen/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="InventorySlot1" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot2" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot3" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot4" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot5" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot6" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot7" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot8" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_25okd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HPBar" type="ProgressBar" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+fill_mode = 1
+show_percentage = false
+
+[node name="MPBar" type="ProgressBar" parent="popupMenu/baseMenuScreen/TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+fill_mode = 1
+show_percentage = false
+
+[node name="hideMenuButton" type="Button" parent="popupMenu/baseMenuScreen"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tu1ye")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lcngc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1n20")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_priow")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6gepb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_deba6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15dl6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5j6yr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uob6n")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t8egm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds46m")
+
+[node name="baseMenuOpen" type="MarginContainer" parent="popupMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 250
+
+[node name="displayMenuButton" type="Button" parent="popupMenu/baseMenuOpen"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tu1ye")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lcngc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1n20")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_priow")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6gepb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_deba6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15dl6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5j6yr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uob6n")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t8egm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds46m")
