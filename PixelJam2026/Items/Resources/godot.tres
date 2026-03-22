@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dh22f0eie05v6"]
-
-[ext_resource type="Script" path="res://PixelJam2026/Items/item_data.gd" id="1_q3yvk"]
-[ext_resource type="Texture2D" uid="uid://bf4xwvkdbq101" path="res://icon.svg" id="2_nm3e3"]
-
-[resource]
-script = ExtResource("1_q3yvk")
-name = "Godot"
-texture = ExtResource("2_nm3e3")

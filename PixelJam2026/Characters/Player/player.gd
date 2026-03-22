@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @export var angle_block = 10
 
 @onready var weapon = %Weapon
+@onready var gun_shot = %GunShot
 @onready var hurt_box = %HurtBox
 
 @onready var animation_motion = %AnimationMotion
@@ -17,6 +18,8 @@ var knockback_time: float = 0
 
 var blend_rotation: float = 0
 var is_attacking = false
+var have_sword = true
+var have_gun = false
 
 func hit(damage: int):
 	hp -= damage
@@ -26,7 +29,7 @@ func knock(dir: Vector2):
 	knockback = dir
 
 func attack_break():
-	knockback_time = 1
+	knockback_time = 0.3
 
 func update_animation():
 	if hp <= 0:
@@ -42,6 +45,8 @@ func update_animation():
 			animation_motion["parameters/conditions/is_walking"] = true
 			animation_motion["parameters/conditions/is_idle"] = false
 
+	animation_attack["parameters/conditions/have_sword"] = have_sword
+	animation_attack["parameters/conditions/have_gun"] = have_gun
 	animation_motion["parameters/Idle/blend_position"] = blend_rotation
 	animation_motion["parameters/Walk/blend_position"] = blend_rotation
 	animation_motion["parameters/Dead/blend_position"] = blend_rotation
@@ -54,6 +59,7 @@ func get_input():
 		blend_rotation = -1
 
 	hurt_box.set_rotation(rotation_direction)
+	gun_shot.set_rotation(rotation_direction)
 	if rotation_direction <= -PI/angle_block and rotation_direction >= -(angle_block-1)*PI/angle_block:
 		if rotation_direction < -PI/2:
 			rotation_direction = -(angle_block-1)*PI/angle_block
@@ -61,6 +67,10 @@ func get_input():
 			rotation_direction = -PI/angle_block
 
 	weapon.set_rotation(rotation_direction)
+
+	if Input.is_action_just_pressed("switch_arm"):
+		have_gun = !have_gun
+		have_sword = !have_sword
 
 	if Input.is_action_just_pressed("click"):
 		is_attacking = true

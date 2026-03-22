@@ -1,27 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://n1jklne2iiku"]
+[gd_scene load_steps=15 format=3 uid="uid://n1jklne2iiku"]
 
 [ext_resource type="Script" path="res://PixelJam2026/UI/ui.gd" id="1_uhq81"]
 [ext_resource type="Texture2D" uid="uid://dhjbuuoxjnys0" path="res://PixelJam2026/Assets/Misc/inventaire placeholder.png" id="1_v43x2"]
-[ext_resource type="Script" path="res://PixelJam2026/Items/inventory_data.gd" id="2_vmkap"]
-[ext_resource type="PackedScene" uid="uid://d3umrq57sewji" path="res://PixelJam2026/UI/inventory_slot.tscn" id="3_25okd"]
-[ext_resource type="Script" path="res://PixelJam2026/Items/item_data.gd" id="4_80446"]
-[ext_resource type="Texture2D" uid="uid://bf4xwvkdbq101" path="res://icon.svg" id="4_xmm4y"]
-[ext_resource type="Texture2D" uid="uid://xmqo2hsnrb6f" path="res://PixelJam2026/Assets/Sprites/objets/drops/baton.png" id="5_ux54h"]
-
-[sub_resource type="Resource" id="Resource_p3a0q"]
-script = ExtResource("4_80446")
-name = ""
-texture = ExtResource("4_xmm4y")
-
-[sub_resource type="Resource" id="Resource_7jm5a"]
-script = ExtResource("4_80446")
-name = ""
-texture = ExtResource("5_ux54h")
-
-[sub_resource type="Resource" id="Resource_t2kxc"]
-script = ExtResource("2_vmkap")
-slots = Array[ExtResource("4_80446")]([SubResource("Resource_p3a0q"), SubResource("Resource_7jm5a")])
-inventory_limit = 8
+[ext_resource type="PackedScene" uid="uid://bm57xl1q4j85n" path="res://PixelJam2026/UI/inventory_slot.tscn" id="3_25okd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu1ye"]
 
@@ -47,7 +28,6 @@ inventory_limit = 8
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_uhq81")
-init_inventory = SubResource("Resource_t2kxc")
 
 [node name="popupMenu" type="MarginContainer" parent="."]
 anchors_preset = 6
