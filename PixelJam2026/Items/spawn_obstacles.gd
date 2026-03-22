@@ -21,6 +21,9 @@ func get_random_point_in_circle() -> Vector2:
 	var r = radius * sqrt(randf())
 	return Vector2(r * cos(t), r * sin(t))
 
+func _on_obstacle_destroied():
+	nb_obstacles -= 1
+
 func _on_timer_timeout():
 	if nb_obstacles >= max_obstacles:
 		return
@@ -30,6 +33,7 @@ func _on_timer_timeout():
 		var obstacle = ob.obstacle.instantiate()
 		nb_obstacles += 1
 		obstacle.position = position + get_random_point_in_circle()
+		obstacle.obstacle_destroied.connect(_on_obstacle_destroied)
 		parent.add_child(obstacle)
 
 func _draw():
