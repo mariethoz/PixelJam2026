@@ -185,7 +185,6 @@ position = Vector2(-1197, 1559)
 enemy_scene = ExtResource("13_wrg7x")
 parent = NodePath("../..")
 radius = 500.0
-wait_time = 5.0
 
 [node name="Enemy3" parent="Spawn" node_paths=PackedStringArray("parent") instance=ExtResource("7_k7beh")]
 position = Vector2(-1511, -1486)
